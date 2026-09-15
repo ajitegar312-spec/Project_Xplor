@@ -13,10 +13,10 @@ export default async function InsightsPage({ params }: { params: Promise<{ lang:
   const dict = await getDictionary(lang);
   return (
     <>
-      <section className="bg-gradient-to-b from-brand-50 to-white py-14" aria-labelledby="insights-hero">
+      <section className="bg-gradient-to-b from-brand-50 to-white py-14 dark:from-slate-900 dark:to-slate-950" aria-labelledby="insights-hero">
         <Container className="max-w-3xl">
-          <h1 id="insights-hero" className="text-3xl font-extrabold sm:text-4xl">{dict.insightsPage.title}</h1>
-          <p className="mt-3 text-slate-600">{dict.insightsPage.subtitle}</p>
+          <h1 id="insights-hero" className="text-3xl font-extrabold dark:text-white sm:text-4xl">{dict.insightsPage.title}</h1>
+          <p className="mt-3 text-slate-600 dark:text-slate-300">{dict.insightsPage.subtitle}</p>
         </Container>
       </section>
       <InsightsList lang={lang} dict={dict} categories={postCategories()} posts={posts} />

@@ -29,25 +29,25 @@ export default async function ServiceDetail({ params }: { params: Promise<{ lang
   const dict = await getDictionary(lang);
   return (
     <>
-      <section className="bg-gradient-to-b from-brand-50 to-white py-14" aria-labelledby="svc-title">
+      <section className="bg-gradient-to-b from-brand-50 to-white py-14 dark:from-slate-900 dark:to-slate-950" aria-labelledby="svc-title">
         <Container className="max-w-3xl">
-          <p><Link href={`/${lang}/services`} className="text-sm font-bold text-brand-700">← {dict.nav.services}</Link></p>
-          <h1 id="svc-title" className="mt-2 text-3xl font-extrabold sm:text-4xl">{pick(s!.title, lang)} {s!.icon}</h1>
-          <p className="mt-3 text-slate-600">{pick(s!.body, lang)}</p>
+          <p><Link href={`/${lang}/services`} className="text-sm font-bold text-brand-700 dark:text-brand-100">← {dict.nav.services}</Link></p>
+          <h1 id="svc-title" className="mt-2 text-3xl font-extrabold dark:text-white sm:text-4xl">{pick(s!.title, lang)} {s!.icon}</h1>
+          <p className="mt-3 text-slate-600 dark:text-slate-300">{pick(s!.body, lang)}</p>
         </Container>
       </section>
       <section className="mt-12" aria-label="Deliverables">
         <Container className="grid max-w-4xl gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border p-6">
-            <h2 className="font-bold">Deliverables</h2>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-600">
+          <div className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
+            <h2 className="font-bold dark:text-white">Deliverables</h2>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-300">
               {s!.deliverables.map((d) => <li key={d}>{d}</li>)}
             </ul>
           </div>
-          <div className="rounded-2xl border p-6">
-            <h2 className="font-bold">Technology</h2>
+          <div className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
+            <h2 className="font-bold dark:text-white">Technology</h2>
             <ul className="mt-2 flex flex-wrap gap-2">
-              {s!.stack.map((t) => <li key={t} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium">{t}</li>)}
+              {s!.stack.map((t) => <li key={t} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium dark:bg-slate-800 dark:text-slate-200">{t}</li>)}
             </ul>
           </div>
         </Container>

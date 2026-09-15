@@ -5,6 +5,12 @@
 :root {
   --brand: #2b5cff;
   --ink: #0b1020;
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+  --brand: #8fa8ff;
 }
 
 html {
@@ -12,7 +18,7 @@ html {
 }
 
 body {
-  @apply bg-white text-slate-900 antialiased;
+  @apply bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
 }
 
 :focus-visible {
@@ -34,6 +40,25 @@ body {
   left: 0.5rem;
   top: 0.5rem;
 }
+.dark .skip-link {
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+/* Mobile menu open animation (subtle). Disabled under reduced motion. */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.menu-panel {
+  animation: menu-in 0.16s ease-out;
+}
 
 .reveal {
   opacity: 0;
@@ -49,6 +74,9 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .menu-panel {
+    animation: none;
   }
   html {
     scroll-behavior: auto;

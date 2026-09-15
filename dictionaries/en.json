@@ -1,5 +1,7 @@
 {
   "nav": { "home": "Home", "about": "About", "services": "Services", "work": "Work", "insights": "Insights", "contact": "Contact", "cta": "Free Consultation" },
+  "theme": { "toggle": "Toggle light/dark theme" },
+  "menu": { "open": "Open navigation menu", "close": "Close navigation menu" },
   "hero": {
     "badge": "Digital Transformation Partner",
     "title": "Build credible digital products that convert",

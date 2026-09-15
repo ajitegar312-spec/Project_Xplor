@@ -1,5 +1,7 @@
 {
   "nav": { "home": "Home", "about": "Tentang", "services": "Layanan", "work": "Portfolio", "insights": "Insight", "contact": "Kontak", "cta": "Konsultasi Gratis" },
+  "theme": { "toggle": "Ganti tema terang/gelap" },
+  "menu": { "open": "Buka menu navigasi", "close": "Tutup menu navigasi" },
   "hero": {
     "badge": "Partner Transformasi Digital",
     "title": "Bangun produk digital yang kredibel & menghasilkan",

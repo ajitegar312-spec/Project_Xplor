@@ -28,26 +28,26 @@ export function ContactForm({ dict }: { dict: any }) {
     }
   }
   return (
-    <form onSubmit={onSubmit} className="space-y-4 rounded-2xl border p-6" aria-label={dict.contactPage.formTitle}>
-      <h2 className="text-xl font-bold">{dict.contactPage.formTitle}</h2>
+    <form onSubmit={onSubmit} className="space-y-4 rounded-2xl border border-slate-200 p-6 dark:border-slate-800" aria-label={dict.contactPage.formTitle}>
+      <h2 className="text-xl font-bold dark:text-white">{dict.contactPage.formTitle}</h2>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-name" className="mb-1 block text-sm font-medium">{dict.contactPage.name}</label>
-          <input id="cf-name" name="name" required autoComplete="name" className="w-full rounded-xl border px-3 py-2.5" />
+          <input id="cf-name" name="name" required autoComplete="name" className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
         </div>
         <div>
           <label htmlFor="cf-email" className="mb-1 block text-sm font-medium">{dict.contactPage.email}</label>
-          <input id="cf-email" name="email" type="email" required autoComplete="email" className="w-full rounded-xl border px-3 py-2.5" />
+          <input id="cf-email" name="email" type="email" required autoComplete="email" className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-company" className="mb-1 block text-sm font-medium">{dict.contactPage.company}</label>
-          <input id="cf-company" name="company" autoComplete="organization" className="w-full rounded-xl border px-3 py-2.5" />
+          <input id="cf-company" name="company" autoComplete="organization" className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
         </div>
         <div>
           <label htmlFor="cf-budget" className="mb-1 block text-sm font-medium">{dict.contactPage.budget}</label>
-          <select id="cf-budget" name="budget" className="w-full rounded-xl border px-3 py-2.5">
+          <select id="cf-budget" name="budget" className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
             <option value="">—</option>
             <option>&lt; $5k</option>
             <option>$5k – $15k</option>
@@ -58,13 +58,13 @@ export function ContactForm({ dict }: { dict: any }) {
       </div>
       <div>
         <label htmlFor="cf-message" className="mb-1 block text-sm font-medium">{dict.contactPage.message}</label>
-        <textarea id="cf-message" name="message" required rows={5} className="w-full rounded-xl border px-3 py-2.5" />
+        <textarea id="cf-message" name="message" required rows={5} className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
       </div>
       <button disabled={status === "sending"} className="rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white disabled:opacity-60">
         {status === "sending" ? dict.contactPage.sending : dict.contactPage.submit}
       </button>
-      {status === "done" && <p role="status" className="text-sm text-green-700">{dict.contactPage.success}</p>}
-      {status === "error" && <p role="alert" className="text-sm text-red-700">{dict.contactPage.error}</p>}
+      {status === "done" && <p role="status" className="text-sm text-green-700 dark:text-green-400">{dict.contactPage.success}</p>}
+      {status === "error" && <p role="alert" className="text-sm text-red-700 dark:text-red-400">{dict.contactPage.error}</p>}
     </form>
   );
 }

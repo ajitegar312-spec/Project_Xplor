@@ -14,10 +14,10 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang);
   return (
     <>
-      <section className="bg-gradient-to-b from-brand-50 to-white py-14" aria-labelledby="work-hero">
+      <section className="bg-gradient-to-b from-brand-50 to-white py-14 dark:from-slate-900 dark:to-slate-950" aria-labelledby="work-hero">
         <Container className="max-w-3xl">
-          <h1 id="work-hero" className="text-3xl font-extrabold sm:text-4xl">{dict.workPage.title}</h1>
-          <p className="mt-3 text-slate-600">{dict.workPage.subtitle}</p>
+          <h1 id="work-hero" className="text-3xl font-extrabold dark:text-white sm:text-4xl">{dict.workPage.title}</h1>
+          <p className="mt-3 text-slate-600 dark:text-slate-300">{dict.workPage.subtitle}</p>
         </Container>
       </section>
       <section className="mt-12" aria-label="Projects">

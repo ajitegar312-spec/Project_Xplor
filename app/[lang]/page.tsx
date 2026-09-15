@@ -24,14 +24,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-brand-50 to-white py-16 sm:py-24" aria-labelledby="home-hero">
+      <section className="bg-gradient-to-b from-brand-50 to-white py-16 dark:from-slate-900 dark:to-slate-950 sm:py-24" aria-labelledby="home-hero">
         <Container className="max-w-3xl text-center">
-          <p className="inline-block rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-700">{dict.hero.badge}</p>
+          <p className="inline-block rounded-full border border-slate-200 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-700 dark:border-slate-700 dark:text-brand-100">{dict.hero.badge}</p>
           <h1 id="home-hero" className="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">{dict.hero.title}</h1>
-          <p className="mt-4 text-slate-600">{dict.hero.subtitle}</p>
+          <p className="mt-4 text-slate-600 dark:text-slate-300">{dict.hero.subtitle}</p>
           <div className="mt-6 flex justify-center gap-3">
             <Link href={`/${lang}/contact`} className="rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white">{dict.hero.primary}</Link>
-            <Link href={`/${lang}/work`} className="rounded-full border px-6 py-3 text-sm font-bold">{dict.hero.secondary}</Link>
+            <Link href={`/${lang}/work`} className="rounded-full border border-slate-200 px-6 py-3 text-sm font-bold dark:border-slate-700">{dict.hero.secondary}</Link>
           </div>
         </Container>
       </section>
@@ -39,9 +39,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Company Introduction */}
       <section className="mt-16" aria-labelledby="intro">
         <Container className="max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">{dict.sections.intro.eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.intro.eyebrow}</p>
           <h2 id="intro" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.intro.title}</h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-slate-600 dark:text-slate-300">
             {lang === "id"
               ? "Kami menggabungkan strategi, desain, dan engineering untuk meluncurkan produk yang cepat, aman, dan terukur."
               : "We combine strategy, design, and engineering to launch fast, secure, measurable products."}
@@ -52,8 +52,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Trusted By */}
       <section className="mt-14" aria-label={dict.sections.trusted.title}>
         <Container>
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{dict.sections.trusted.eyebrow}</p>
-          <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">{dict.sections.trusted.eyebrow}</p>
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400 dark:text-slate-500">
             {["Finova", "MedikaCare", "Arunika", "Karta", "Svara", "Wastu"].map((b) => <li key={b}>{b}</li>)}
           </ul>
         </Container>
@@ -62,14 +62,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Services */}
       <section className="mt-20" aria-labelledby="home-services">
         <Container>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">{dict.sections.services.eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.services.eyebrow}</p>
           <h2 id="home-services" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.services.title}</h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <li key={s.slug} className="rounded-2xl border p-6">
+              <li key={s.slug} className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
                 <span className="text-2xl" aria-hidden="true">{s.icon}</span>
                 <h3 className="mt-2 font-bold"><Link href={`/${lang}/services/${s.slug}`}>{pick(s.title, lang)}</Link></h3>
-                <p className="mt-1 text-sm text-slate-600">{pick(s.excerpt, lang)}</p>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(s.excerpt, lang)}</p>
               </li>
             ))}
           </ul>
@@ -81,19 +81,19 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         <Container>
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">{dict.sections.work.eyebrow}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.work.eyebrow}</p>
               <h2 id="home-work" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.work.title}</h2>
             </div>
-            <Link href={`/${lang}/work`} className="text-sm font-bold text-brand-700">{dict.sections.work.all} →</Link>
+            <Link href={`/${lang}/work`} className="text-sm font-bold text-brand-700 dark:text-brand-100">{dict.sections.work.all} →</Link>
           </div>
           <ul className="mt-8 grid gap-5 md:grid-cols-3">
             {featured.map((w) => (
-              <li key={w.slug} className="overflow-hidden rounded-2xl border">
-                <div className="flex h-36 items-center justify-center bg-gradient-to-br from-brand-100 to-slate-100 text-4xl" aria-hidden="true">◈</div>
+              <li key={w.slug} className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800">
+                <div className="flex h-36 items-center justify-center bg-gradient-to-br from-brand-100 to-slate-100 text-4xl dark:from-slate-800 dark:to-slate-900" aria-hidden="true">◈</div>
                 <div className="p-5">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">{w.category} · {w.client}</p>
-                  <h3 className="mt-1 font-bold"><Link href={`/${lang}/work/${w.slug}`}>{pick(w.title, lang)}</Link></h3>
-                  <p className="mt-1 text-sm text-slate-600">{pick(w.summary, lang)}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-100">{w.category} · {w.client}</p>
+                  <h3 className="mt-1 font-bold dark:text-white"><Link href={`/${lang}/work/${w.slug}`}>{pick(w.title, lang)}</Link></h3>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(w.summary, lang)}</p>
                 </div>
               </li>
             ))}
@@ -104,13 +104,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Why Choose Us */}
       <section className="mt-20" aria-labelledby="home-why">
         <Container>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">{dict.sections.why.eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.why.eyebrow}</p>
           <h2 id="home-why" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.why.title}</h2>
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {whyChooseUs.map((w) => (
-              <li key={pick(w.title, lang)} className="rounded-2xl border p-6">
+              <li key={pick(w.title, lang)} className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
                 <h3 className="font-bold">✓ {pick(w.title, lang)}</h3>
-                <p className="mt-1 text-sm text-slate-600">{pick(w.desc, lang)}</p>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(w.desc, lang)}</p>
               </li>
             ))}
           </ul>
@@ -123,14 +123,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Testimonials */}
       <section className="mt-20" aria-labelledby="home-testimonials">
         <Container>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">{dict.sections.testimonials.eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.testimonials.eyebrow}</p>
           <h2 id="home-testimonials" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.testimonials.title}</h2>
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
             {testimonials.map((t) => (
-              <li key={t.author} className="rounded-2xl border p-6">
-                <p className="text-sm text-slate-700">{pick(t.quote, lang)}</p>
-                <p className="mt-4 text-sm font-bold">{t.author}</p>
-                <p className="text-xs text-slate-500">{t.role}</p>
+              <li key={t.author} className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
+                <p className="text-sm text-slate-700 dark:text-slate-200">{pick(t.quote, lang)}</p>
+                <p className="mt-4 text-sm font-bold dark:text-white">{t.author}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{t.role}</p>
               </li>
             ))}
           </ul>
@@ -142,22 +142,22 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         <Container>
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">{dict.sections.insights.eyebrow}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.insights.eyebrow}</p>
               <h2 id="home-insights" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.insights.title}</h2>
             </div>
-            <Link href={`/${lang}/insights`} className="text-sm font-bold text-brand-700">{dict.sections.insights.all} →</Link>
+            <Link href={`/${lang}/insights`} className="text-sm font-bold text-brand-700 dark:text-brand-100">{dict.sections.insights.all} →</Link>
           </div>
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
             {latestPosts.map((p) => (
-              <li key={p.slug} className="rounded-2xl border p-6">
-                <p className="text-xs font-semibold uppercase text-brand-600">{p.category}</p>
-                <h3 className="mt-1 font-bold"><Link href={`/${lang}/insights/${p.slug}`}>{pick(p.title, lang)}</Link></h3>
-                <p className="mt-1 text-sm text-slate-600">{pick(p.excerpt, lang)}</p>
+              <li key={p.slug} className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
+                <p className="text-xs font-semibold uppercase text-brand-600 dark:text-brand-100">{p.category}</p>
+                <h3 className="mt-1 font-bold dark:text-white"><Link href={`/${lang}/insights/${p.slug}`}>{pick(p.title, lang)}</Link></h3>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(p.excerpt, lang)}</p>
               </li>
             ))}
           </ul>
-          <div className="mt-8 rounded-2xl bg-slate-50 p-6">
-            <h3 className="font-bold">{dict.newsletter.title}</h3>
+          <div className="mt-8 rounded-2xl bg-slate-50 p-6 dark:bg-slate-900">
+            <h3 className="font-bold dark:text-white">{dict.newsletter.title}</h3>
             <div className="mt-3"><NewsletterForm dict={dict} /></div>
           </div>
         </Container>
