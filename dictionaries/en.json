@@ -28,7 +28,8 @@
     "teamTitle": "Core team"
   },
   "servicesPage": { "title": "Our services", "subtitle": "Six core capabilities to launch and scale digital products." },
-  "workPage": { "title": "Work", "subtitle": "Selected case studies with measurable outcomes.", "filterAll": "All" },
+  "workPage": { "title": "Work", "subtitle": "Selected case studies of products we designed and built.", "filterAll": "All", "featured": "Featured Case Study", "viewCaseStudy": "View Case Study" },
+  "caseStudy": { "challenge": "Challenge", "solution": "Solution", "features": "Key Features", "technology": "Technology", "outcome": "Outcome & Impact", "related": "Related Work", "cta": "Discuss a similar project" },
   "insightsPage": { "title": "Insights", "subtitle": "Best practices in engineering, design, and digital strategy." },
   "contactPage": {
     "title": "Contact us",

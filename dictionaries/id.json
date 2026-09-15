@@ -28,7 +28,8 @@
     "teamTitle": "Tim inti"
   },
   "servicesPage": { "title": "Layanan kami", "subtitle": "Enam kapabilitas inti untuk meluncurkan dan mengembangkan produk digital." },
-  "workPage": { "title": "Portfolio", "subtitle": "Studi kasus pilihan dengan hasil terukur.", "filterAll": "Semua" },
+  "workPage": { "title": "Portfolio", "subtitle": "Studi kasus pilihan dari produk yang kami rancang dan bangun.", "filterAll": "Semua", "featured": "Studi Kasus Unggulan", "viewCaseStudy": "Lihat Studi Kasus" },
+  "caseStudy": { "challenge": "Tantangan", "solution": "Solusi", "features": "Fitur Utama", "technology": "Teknologi", "outcome": "Hasil & Dampak", "related": "Proyek Terkait", "cta": "Diskusikan proyek serupa" },
   "insightsPage": { "title": "Insights", "subtitle": "Praktik terbaik engineering, desain, dan strategi digital." },
   "contactPage": {
     "title": "Hubungi kami",

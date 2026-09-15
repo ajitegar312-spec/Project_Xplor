@@ -20,7 +20,6 @@ export type Service = {
   stack: string[];
 };
 
-export type WorkMetric = { value: string; label: Localized };
 export type Work = {
   slug: string;
   client: string;
@@ -31,7 +30,8 @@ export type Work = {
   challenge: Localized;
   solution: Localized;
   stack: string[];
-  metrics: WorkMetric[];
+  features: Localized[];
+  outcomes: Localized[];
   quote?: Localized;
   quoteAuthor?: string;
 };
