@@ -1,0 +1,96 @@
+import type { Work } from "@/types";
+
+// 3 featured real briefs + 3 dummy extras for grid. Metrics are dummy.
+export const works: Work[] = [
+  {
+    slug: "finova-digital-banking",
+    client: "Finova",
+    year: "2025",
+    category: "Fintech",
+    title: { id: "Finova — Platform Digital Banking", en: "Finova — Digital Banking Platform" },
+    summary: { id: "Onboarding digital & dashboard keuangan real-time.", en: "Digital onboarding & real-time finance dashboard." },
+    challenge: { id: "Onboarding lambat dan drop-off tinggi di mobile.", en: "Slow onboarding and high mobile drop-off." },
+    solution: { id: "Merancang ulang alur KYC menjadi 3 langkah dengan verifikasi progresif dan dashboard ringan.", en: "Redesigned KYC into 3 steps with progressive verification and a lightweight dashboard." },
+    stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
+    metrics: [
+      { value: "-40%", label: { id: "Waktu onboarding", en: "Onboarding time" } },
+      { value: "+65%", label: { id: "Aktivasi pengguna", en: "User activation" } },
+    ],
+    quote: { id: "Xplor Digital mengubah ide kami menjadi produk yang dicintai pelanggan.", en: "Xplor Digital transformed our idea into a product customers love." },
+    quoteAuthor: "Daniel Hart, CEO Finova",
+  },
+  {
+    slug: "medikacare-healthcare-system",
+    client: "MedikaCare",
+    year: "2024",
+    category: "Healthcare",
+    title: { id: "MedikaCare — Sistem Manajemen Kesehatan", en: "MedikaCare — Healthcare Management System" },
+    summary: { id: "Antrian, rekam medis, dan jadwal dokter terintegrasi.", en: "Integrated queue, records, and doctor scheduling." },
+    challenge: { id: "Antrian manual dan data pasien tersebar.", en: "Manual queues and fragmented patient data." },
+    solution: { id: "Membangun portal pasien + dashboard klinik dengan antrian real-time dan rekam medis terpusat.", en: "Built patient portal + clinic dashboard with real-time queue and centralized records." },
+    stack: ["React", "Laravel", "MySQL", "Docker"],
+    metrics: [
+      { value: "-35%", label: { id: "Waktu tunggu", en: "Wait time" } },
+      { value: "+50%", label: { id: "Kepuasan pasien", en: "Patient satisfaction" } },
+    ],
+    quote: { id: "Proses transparan dan hasil melebihi ekspektasi.", en: "Transparent process, results beyond expectations." },
+    quoteAuthor: "Sarah Wijaya, MedikaCare",
+  },
+  {
+    slug: "arunika-ecommerce",
+    client: "Arunika",
+    year: "2025",
+    category: "E-Commerce",
+    title: { id: "Arunika — Platform E-Commerce", en: "Arunika — E-Commerce Platform" },
+    summary: { id: "Storefront cepat dengan checkout 1 halaman.", en: "Fast storefront with 1-page checkout." },
+    challenge: { id: "Bounce tinggi di halaman produk dan checkout.", en: "High bounce on product and checkout pages." },
+    solution: { id: "Membangun storefront edge-rendered dengan pencarian instan dan checkout teroptimasi.", en: "Built edge-rendered storefront with instant search and optimized checkout." },
+    stack: ["Next.js", "Tailwind CSS", "PostgreSQL", "Cloudflare"],
+    metrics: [
+      { value: "+120%", label: { id: "Konversi", en: "Conversion" } },
+      { value: "0.9s", label: { id: "LCP mobile", en: "Mobile LCP" } },
+    ],
+    quote: { id: "Scalable namun UX tetap simpel dan intuitif.", en: "Scalable yet simple, intuitive UX." },
+    quoteAuthor: "Michael Tan, Arunika",
+  },
+  {
+    slug: "karta-logistics-dashboard",
+    client: "Karta (dummy)",
+    year: "2024",
+    category: "SaaS",
+    title: { id: "Karta — Dashboard Logistik (dummy)", en: "Karta — Logistics Dashboard (dummy)" },
+    summary: { id: "Visibilitas armada & SLA real-time.", en: "Real-time fleet & SLA visibility." },
+    challenge: { id: "Data operasional tersebar di spreadsheet.", en: "Ops data scattered across sheets." },
+    solution: { id: "Dashboard terpusat dengan alert SLA dan ekspor laporan.", en: "Central dashboard with SLA alerts and report export." },
+    stack: ["Next.js", "Python", "PostgreSQL"],
+    metrics: [{ value: "+30%", label: { id: "Efisiensi ops", en: "Ops efficiency" } }],
+  },
+  {
+    slug: "svara-edtech-platform",
+    client: "Svara (dummy)",
+    year: "2023",
+    category: "EdTech",
+    title: { id: "Svara — Platform EdTech (dummy)", en: "Svara — EdTech Platform (dummy)" },
+    summary: { id: "Kelas online & analitik belajar.", en: "Online classes & learning analytics." },
+    challenge: { id: "Retensi murid rendah.", en: "Low student retention." },
+    solution: { id: "Gamifikasi progres dan reminder belajar personal.", en: "Progress gamification and personal nudges." },
+    stack: ["React", "Node.js", "MySQL"],
+    metrics: [{ value: "+45%", label: { id: "Retensi", en: "Retention" } }],
+  },
+  {
+    slug: "wastu-proptech-site",
+    client: "Wastu (dummy)",
+    year: "2023",
+    category: "Website",
+    title: { id: "Wastu — Website Proptech (dummy)", en: "Wastu — Proptech Site (dummy)" },
+    summary: { id: "Katalog properti SEO-ready.", en: "SEO-ready property catalog." },
+    challenge: { id: "Lead organik stagnan.", en: "Stagnant organic leads." },
+    solution: { id: "IA baru + halaman programmatic SEO + form terjadwal.", en: "New IA + programmatic SEO + scheduled forms." },
+    stack: ["Next.js", "Tailwind CSS", "Cloudflare"],
+    metrics: [{ value: "+80%", label: { id: "Lead organik", en: "Organic leads" } }],
+  },
+];
+
+export const getWork = (slug: string) => works.find((w) => w.slug === slug);
+export const workSlugs = () => works.map((w) => w.slug);
+export const workCategories = () => ["All", ...Array.from(new Set(works.map((w) => w.category)))];

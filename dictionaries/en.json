@@ -1,0 +1,50 @@
+{
+  "nav": { "home": "Home", "about": "About", "services": "Services", "work": "Work", "insights": "Insights", "contact": "Contact", "cta": "Free Consultation" },
+  "hero": {
+    "badge": "Digital Transformation Partner",
+    "title": "Build credible digital products that convert",
+    "subtitle": "Xplor Digital helps companies design, build, and scale fast, secure web, mobile, and cloud platforms.",
+    "primary": "Start Consulting",
+    "secondary": "View Work"
+  },
+  "sections": {
+    "intro": { "eyebrow": "Introduction", "title": "Engineering & design team for ambitious businesses" },
+    "trusted": { "eyebrow": "Trusted by", "title": "Trusted by modern teams" },
+    "services": { "eyebrow": "Services", "title": "End-to-end services", "more": "Learn more" },
+    "work": { "eyebrow": "Featured Work", "title": "Measurable outcomes", "all": "View all" },
+    "why": { "eyebrow": "Why Us", "title": "Why choose Xplor Digital" },
+    "process": { "eyebrow": "Process", "title": "A transparent process" },
+    "stats": { "eyebrow": "Track Record", "title": "Numbers speak" },
+    "testimonials": { "eyebrow": "Testimonials", "title": "What clients say" },
+    "insights": { "eyebrow": "Insights", "title": "Latest articles", "all": "All articles" },
+    "cta": { "title": "Have a product idea? Let's discuss.", "subtitle": "Reply within 1 business day. No commitment.", "button": "Contact Us" }
+  },
+  "about": {
+    "storyTitle": "Our story",
+    "missionTitle": "Mission & Vision",
+    "valuesTitle": "Core values",
+    "teamTitle": "Core team"
+  },
+  "servicesPage": { "title": "Our services", "subtitle": "Six core capabilities to launch and scale digital products." },
+  "workPage": { "title": "Work", "subtitle": "Selected case studies with measurable outcomes.", "filterAll": "All" },
+  "insightsPage": { "title": "Insights", "subtitle": "Best practices in engineering, design, and digital strategy." },
+  "contactPage": {
+    "title": "Contact us",
+    "subtitle": "Tell us your needs — we reply within 1 business day.",
+    "infoTitle": "Contact information",
+    "formTitle": "Consultation form",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company (optional)",
+    "budget": "Estimated budget",
+    "message": "Your needs",
+    "submit": "Send",
+    "sending": "Sending...",
+    "success": "Thank you! Your message was sent (mock).",
+    "error": "Failed to send. Try again.",
+    "faqTitle": "FAQ",
+    "mapTitle": "Location (dummy)"
+  },
+  "newsletter": { "title": "Get monthly insights", "placeholder": "Your email", "button": "Subscribe", "done": "Subscribed! (mock)" },
+  "footer": { "tagline": "Building fast, secure, measurable digital products.", "rights": "All rights reserved.", "dummy": "Contacts on this page are dummy for development." }
+}

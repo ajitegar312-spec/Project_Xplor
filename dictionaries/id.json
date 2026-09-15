@@ -1,0 +1,50 @@
+{
+  "nav": { "home": "Home", "about": "Tentang", "services": "Layanan", "work": "Portfolio", "insights": "Insight", "contact": "Kontak", "cta": "Konsultasi Gratis" },
+  "hero": {
+    "badge": "Partner Transformasi Digital",
+    "title": "Bangun produk digital yang kredibel & menghasilkan",
+    "subtitle": "Xplor Digital membantu perusahaan merancang, membangun, dan mengembangkan web, aplikasi mobile, dan platform cloud yang cepat dan aman.",
+    "primary": "Mulai Konsultasi",
+    "secondary": "Lihat Portfolio"
+  },
+  "sections": {
+    "intro": { "eyebrow": "Perkenalan", "title": "Tim engineering & desain untuk bisnis ambisius" },
+    "trusted": { "eyebrow": "Dipercaya oleh", "title": "Dipercaya tim modern" },
+    "services": { "eyebrow": "Layanan", "title": "Layanan end-to-end", "more": "Pelajari" },
+    "work": { "eyebrow": "Portfolio Pilihan", "title": "Hasil yang terukur", "all": "Lihat semua" },
+    "why": { "eyebrow": "Kenapa Kami", "title": "Kenapa memilih Xplor Digital" },
+    "process": { "eyebrow": "Proses", "title": "Proses yang transparan" },
+    "stats": { "eyebrow": "Pencapaian", "title": "Angka bicara" },
+    "testimonials": { "eyebrow": "Testimoni", "title": "Kata klien kami" },
+    "insights": { "eyebrow": "Insight", "title": "Tulisan terbaru", "all": "Semua artikel" },
+    "cta": { "title": "Punya ide produk? Diskusikan dengan kami.", "subtitle": "Respons < 1x24 jam kerja. Tanpa komitmen.", "button": "Hubungi Kami" }
+  },
+  "about": {
+    "storyTitle": "Cerita kami",
+    "missionTitle": "Misi & Visi",
+    "valuesTitle": "Nilai inti",
+    "teamTitle": "Tim inti"
+  },
+  "servicesPage": { "title": "Layanan kami", "subtitle": "Enam kapabilitas inti untuk meluncurkan dan mengembangkan produk digital." },
+  "workPage": { "title": "Portfolio", "subtitle": "Studi kasus pilihan dengan hasil terukur.", "filterAll": "Semua" },
+  "insightsPage": { "title": "Insights", "subtitle": "Praktik terbaik engineering, desain, dan strategi digital." },
+  "contactPage": {
+    "title": "Hubungi kami",
+    "subtitle": "Ceritakan kebutuhan Anda — kami balas < 1x24 jam.",
+    "infoTitle": "Informasi kontak",
+    "formTitle": "Formulir konsultasi",
+    "name": "Nama",
+    "email": "Email",
+    "company": "Perusahaan (opsional)",
+    "budget": "Estimasi budget",
+    "message": "Kebutuhan Anda",
+    "submit": "Kirim",
+    "sending": "Mengirim...",
+    "success": "Terima kasih! Pesan Anda terkirim (mock).",
+    "error": "Gagal mengirim. Coba lagi.",
+    "faqTitle": "Pertanyaan umum",
+    "mapTitle": "Lokasi (dummy)"
+  },
+  "newsletter": { "title": "Dapatkan insight bulanan", "placeholder": "Email Anda", "button": "Berlangganan", "done": "Terdaftar! (mock)" },
+  "footer": { "tagline": "Membangun produk digital yang cepat, aman, dan terukur.", "rights": "Hak cipta dilindungi.", "dummy": "Kontak di halaman ini adalah dummy untuk development." }
+}
