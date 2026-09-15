@@ -14,18 +14,33 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
+  const title = "Xplor Digital — Digital Transformation Partner";
+  const description =
+    lang === "id"
+      ? "Xplor Digital: web development, mobile apps, UI/UX, cloud & DevOps, IT consulting."
+      : "Xplor Digital: web development, mobile apps, UI/UX, cloud & DevOps, IT consulting.";
   return {
     metadataBase: new URL(siteConfig.siteUrl),
-    title: { default: "Xplor Digital — Digital Transformation Partner", template: "%s | Xplor Digital" },
-    description:
-      lang === "id"
-        ? "Xplor Digital: web development, mobile apps, UI/UX, cloud & DevOps, IT consulting."
-        : "Xplor Digital: web development, mobile apps, UI/UX, cloud & DevOps, IT consulting.",
+    title: { default: title, template: "%s | Xplor Digital" },
+    description,
     alternates: {
       canonical: `/${lang}`,
       languages: { id: "/id", en: "/en", "x-default": "/id" },
     },
-    openGraph: { type: "website", locale: lang === "id" ? "id_ID" : "en_US", siteName: "Xplor Digital" },
+    openGraph: {
+      type: "website",
+      locale: lang === "id" ? "id_ID" : "en_US",
+      alternateLocale: lang === "id" ? ["en_US"] : ["id_ID"],
+      url: `${siteConfig.siteUrl}/${lang}`,
+      siteName: "Xplor Digital",
+      title,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
