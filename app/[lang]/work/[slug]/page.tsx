@@ -13,17 +13,19 @@ export function generateStaticParams() {
   return locales.flatMap((lang) => workSlugs().map((slug) => ({ lang, slug })));
 }
 
-export async function generateMetadata({ params }: { params: { lang: string; slug: string } }): Promise<Metadata> {
-  const w = getWork(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
+  const { lang: rawLang, slug } = await params;
+  const w = getWork(slug);
   if (!w) return { title: "Case Study" };
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   return { title: pick(w.title, lang), description: pick(w.summary, lang) };
 }
 
-export default async function CaseStudyPage({ params }: { params: { lang: string; slug: string } }) {
-  const w = getWork(params.slug);
+export default async function CaseStudyPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang: rawLang, slug } = await params;
+  const w = getWork(slug);
   if (!w) notFound();
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
   const related = works.filter((x) => x.slug !== w!.slug).slice(0, 2);
   return (

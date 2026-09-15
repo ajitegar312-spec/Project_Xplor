@@ -9,8 +9,9 @@ import { faqs } from "@/content/site-data";
 
 export const metadata: Metadata = { title: "Contact" };
 
-export default async function ContactPage({ params }: { params: { lang: string } }) {
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await params;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
   return (
     <>

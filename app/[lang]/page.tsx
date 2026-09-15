@@ -15,8 +15,9 @@ import { testimonials, whyChooseUs } from "@/content/site-data";
 
 export const metadata: Metadata = { title: "Xplor Digital — Digital Transformation Partner" };
 
-export default async function HomePage({ params }: { params: { lang: string } }) {
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await params;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
   const featured = works.slice(0, 3);
   const latestPosts = posts.slice(0, 3);

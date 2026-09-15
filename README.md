@@ -1,6 +1,6 @@
 # Xplor Digital — Corporate Website
 
-Next.js 14 App Router + TypeScript + Tailwind. Bilingual `/id` (default) + `/en`. All content dummy & typed for easy replacement.
+Next.js 15 App Router + TypeScript + Tailwind. Bilingual `/id` (default) + `/en`. All content dummy & typed for easy replacement.
 
 ## Quickstart
 ```bash

@@ -13,17 +13,19 @@ export function generateStaticParams() {
   return locales.flatMap((lang) => serviceSlugs().map((slug) => ({ lang, slug })));
 }
 
-export async function generateMetadata({ params }: { params: { lang: string; slug: string } }): Promise<Metadata> {
-  const s = getService(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
+  const { lang: rawLang, slug } = await params;
+  const s = getService(slug);
   if (!s) return { title: "Service" };
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   return { title: pick(s.title, lang), description: pick(s.excerpt, lang) };
 }
 
-export default async function ServiceDetail({ params }: { params: { lang: string; slug: string } }) {
-  const s = getService(params.slug);
+export default async function ServiceDetail({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang: rawLang, slug } = await params;
+  const s = getService(slug);
   if (!s) notFound();
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
   return (
     <>
