@@ -11,17 +11,19 @@ export function generateStaticParams() {
   return locales.flatMap((lang) => postSlugs().map((slug) => ({ lang, slug })));
 }
 
-export async function generateMetadata({ params }: { params: { lang: string; slug: string } }): Promise<Metadata> {
-  const p = getPost(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
+  const { lang: rawLang, slug } = await params;
+  const p = getPost(slug);
   if (!p) return { title: "Article" };
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   return { title: pick(p.title, lang), description: pick(p.excerpt, lang) };
 }
 
-export default async function PostDetail({ params }: { params: { lang: string; slug: string } }) {
-  const p = getPost(params.slug);
+export default async function PostDetail({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang: rawLang, slug } = await params;
+  const p = getPost(slug);
   if (!p) notFound();
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
   const related = posts.filter((x) => x.slug !== p!.slug).slice(0, 2);
   const articleLd = {

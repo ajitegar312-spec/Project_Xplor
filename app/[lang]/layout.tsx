@@ -11,8 +11,9 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
-  const lang = (params.lang === "en" ? "en" : "id") as Locale;
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang: rawLang } = await params;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
   return {
     metadataBase: new URL(siteConfig.siteUrl),
     title: { default: "Xplor Digital — Digital Transformation Partner", template: "%s | Xplor Digital" },
@@ -28,9 +29,10 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   };
 }
 
-export default async function LangLayout({ children, params }: { children: React.ReactNode; params: { lang: string } }) {
-  if (!locales.includes(params.lang as Locale)) notFound();
-  const lang = params.lang as Locale;
+export default async function LangLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await params;
+  if (!locales.includes(rawLang as Locale)) notFound();
+  const lang = rawLang as Locale;
   const dict = await getDictionary(lang);
   const orgJsonLd = {
     "@context": "https://schema.org",
