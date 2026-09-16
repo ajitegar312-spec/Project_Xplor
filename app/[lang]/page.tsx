@@ -25,7 +25,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white py-16 dark:from-slate-900 dark:to-slate-950 sm:py-24" aria-labelledby="home-hero">
-        <div aria-hidden="true" className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[36rem] max-w-none -translate-x-1/2 rounded-full bg-brand-100/60 blur-3xl dark:bg-brand-900/20" />
+        <div aria-hidden="true" className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[36rem] max-w-none -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(219,230,254,0.7),transparent)] dark:bg-[radial-gradient(closest-side,rgba(16,28,78,0.35),transparent)]" />
         <Container className="relative max-w-3xl text-center">
           <p className="inline-block rounded-full border border-slate-200 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-700 dark:border-slate-700 dark:text-brand-100">{dict.hero.badge}</p>
           <h1 id="home-hero" className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">{dict.hero.title}</h1>
