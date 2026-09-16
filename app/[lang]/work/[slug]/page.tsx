@@ -37,7 +37,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ lang
           <h1 id="cs-title" className="mt-3 text-3xl font-extrabold tracking-tight dark:text-white sm:text-5xl">{pick(w!.title, lang)}</h1>
           <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">{pick(w!.summary, lang)}</p>
           <div className="mt-8">
-            <Link href={`/${lang}/contact`} className="inline-block rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white hover:bg-brand-700">
+            <Link href={`/${lang}/contact`} className="inline-block rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-brand-600/20 transition-colors hover:bg-brand-700">
               {dict.caseStudy.cta} →
             </Link>
           </div>
@@ -97,8 +97,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ lang
             ))}
           </ul>
           {w!.quote && (
-            <blockquote className="mt-6 rounded-2xl border-l-4 border-brand-600 bg-slate-50 p-6 dark:bg-slate-900">
-              <p className="text-slate-700 dark:text-slate-200">{pick(w!.quote, lang)}</p>
+            <blockquote className="mt-6 rounded-2xl border-l-4 border-brand-600 bg-slate-50 p-6 dark:bg-slate-900 sm:p-8">
+              <p className="text-lg leading-relaxed text-slate-700 dark:text-slate-200">{pick(w!.quote, lang)}</p>
               {w!.quoteAuthor && <cite className="mt-2 block text-sm font-bold not-italic dark:text-white">— {w!.quoteAuthor}</cite>}
             </blockquote>
           )}

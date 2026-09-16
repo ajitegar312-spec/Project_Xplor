@@ -24,14 +24,15 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-brand-50 to-white py-16 dark:from-slate-900 dark:to-slate-950 sm:py-24" aria-labelledby="home-hero">
-        <Container className="max-w-3xl text-center">
+      <section className="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white py-16 dark:from-slate-900 dark:to-slate-950 sm:py-24" aria-labelledby="home-hero">
+        <div aria-hidden="true" className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[36rem] max-w-none -translate-x-1/2 rounded-full bg-brand-100/60 blur-3xl dark:bg-brand-900/20" />
+        <Container className="relative max-w-3xl text-center">
           <p className="inline-block rounded-full border border-slate-200 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-700 dark:border-slate-700 dark:text-brand-100">{dict.hero.badge}</p>
-          <h1 id="home-hero" className="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">{dict.hero.title}</h1>
-          <p className="mt-4 text-slate-600 dark:text-slate-300">{dict.hero.subtitle}</p>
+          <h1 id="home-hero" className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">{dict.hero.title}</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-300">{dict.hero.subtitle}</p>
           <div className="mt-6 flex justify-center gap-3">
-            <Link href={`/${lang}/contact`} className="rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white">{dict.hero.primary}</Link>
-            <Link href={`/${lang}/work`} className="rounded-full border border-slate-200 px-6 py-3 text-sm font-bold dark:border-slate-700">{dict.hero.secondary}</Link>
+            <Link href={`/${lang}/contact`} className="rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-brand-600/20 transition-colors hover:bg-brand-700">{dict.hero.primary}</Link>
+            <Link href={`/${lang}/work`} className="rounded-full border border-slate-200 bg-white/60 px-6 py-3 text-sm font-bold transition-colors hover:border-slate-300 hover:bg-white dark:border-slate-700 dark:bg-transparent dark:hover:border-slate-600 dark:hover:bg-slate-900">{dict.hero.secondary}</Link>
           </div>
         </Container>
       </section>
@@ -66,9 +67,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <h2 id="home-services" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.services.title}</h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <li key={s.slug} className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
-                <span className="text-2xl" aria-hidden="true">{s.icon}</span>
-                <h3 className="mt-2 font-bold"><Link href={`/${lang}/services/${s.slug}`}>{pick(s.title, lang)}</Link></h3>
+              <li key={s.slug} className="rounded-2xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-2xl dark:bg-slate-800" aria-hidden="true">{s.icon}</span>
+                <h3 className="mt-3 font-bold"><Link href={`/${lang}/services/${s.slug}`} className="transition-colors hover:text-brand-700 dark:hover:text-brand-100">{pick(s.title, lang)}</Link></h3>
                 <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(s.excerpt, lang)}</p>
               </li>
             ))}
@@ -88,13 +89,18 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
           <ul className="mt-8 grid gap-5 md:grid-cols-3">
             {featured.map((w) => (
-              <li key={w.slug} className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800">
-                <div className="flex h-36 items-center justify-center bg-gradient-to-br from-brand-100 to-slate-100 text-4xl dark:from-slate-800 dark:to-slate-900" aria-hidden="true">◈</div>
-                <div className="p-5">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-100">{w.category} · {w.client}</p>
-                  <h3 className="mt-1 font-bold dark:text-white"><Link href={`/${lang}/work/${w.slug}`}>{pick(w.title, lang)}</Link></h3>
-                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(w.summary, lang)}</p>
-                </div>
+              <li key={w.slug}>
+                <Link href={`/${lang}/work/${w.slug}`} className="group block h-full overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-lg motion-safe:transition-all motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700">
+                  <div className="flex h-36 items-center justify-center bg-gradient-to-br from-brand-100 to-slate-100 text-4xl dark:from-slate-800 dark:to-slate-900" aria-hidden="true">◈</div>
+                  <div className="flex flex-col p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-100">{w.category} · {w.client}</p>
+                    <h3 className="mt-1 text-lg font-bold dark:text-white">{pick(w.title, lang)}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{pick(w.summary, lang)}</p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 dark:text-brand-100">
+                      {dict.workPage.viewCaseStudy} <span aria-hidden="true" className="motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:translate-x-0.5">→</span>
+                    </span>
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>

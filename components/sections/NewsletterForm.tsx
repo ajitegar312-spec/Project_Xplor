@@ -20,7 +20,7 @@ export function NewsletterForm({ dict }: { dict: any }) {
     <form onSubmit={onSubmit} className="flex max-w-md gap-2" aria-label={dict.newsletter.title}>
       <label htmlFor="nl-email" className="sr-only">{dict.newsletter.placeholder}</label>
       <input id="nl-email" name="email" type="email" required placeholder={dict.newsletter.placeholder} className="w-full rounded-full border border-slate-200 px-4 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
-      <button className="shrink-0 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white dark:bg-slate-100 dark:text-slate-950">{dict.newsletter.button}</button>
+      <button className="shrink-0 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-white">{dict.newsletter.button}</button>
     </form>
   );
 }

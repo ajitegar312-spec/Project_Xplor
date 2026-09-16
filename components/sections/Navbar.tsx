@@ -4,6 +4,7 @@ import { Container } from "../ui/Container";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { siteConfig } from "@/lib/site-config";
 import { MobileMenu } from "./MobileMenu";
+import { NavLinks } from "./NavLinks";
 
 export function Navbar({ lang, dict }: { lang: Locale; dict: any }) {
   const links = [
@@ -23,13 +24,7 @@ export function Navbar({ lang, dict }: { lang: Locale; dict: any }) {
         <Link href={`/${lang}`} className="shrink-0 text-base font-extrabold tracking-tight text-ink dark:text-white sm:text-lg" aria-label={siteConfig.brand}>
           Xplor<span className="text-brand-600 dark:text-brand-100"> Digital</span>
         </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-6 text-sm font-medium md:flex">
-          {links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-slate-600 hover:text-ink dark:text-slate-300 dark:hover:text-white">
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks links={links} />
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <ThemeToggle label={dict.theme.toggle} />
           <nav aria-label="Language" className="flex overflow-hidden rounded-full border border-slate-200 text-xs font-semibold dark:border-slate-700">
@@ -47,7 +42,7 @@ export function Navbar({ lang, dict }: { lang: Locale; dict: any }) {
           </nav>
           <Link
             href={`/${lang}/contact`}
-            className="hidden rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 sm:inline-block"
+            className="hidden rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-700 sm:inline-block"
           >
             {dict.nav.cta}
           </Link>

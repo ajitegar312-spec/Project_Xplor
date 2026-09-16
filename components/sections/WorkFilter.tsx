@@ -21,7 +21,7 @@ export function WorkFilter({ lang, categories, works, allLabel, viewLabel }: {
             key={c}
             onClick={() => setCat(c)}
             aria-pressed={cat === c}
-            className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${cat === c ? "bg-ink text-white dark:bg-slate-100 dark:text-slate-950" : "border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-300"}`}
+            className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${cat === c ? "bg-ink text-white dark:bg-slate-100 dark:text-slate-950" : "border-slate-200 text-slate-600 hover:border-slate-300 hover:text-ink dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-white"}`}
           >
             {c === "All" ? allLabel : c}
           </button>
@@ -32,7 +32,7 @@ export function WorkFilter({ lang, categories, works, allLabel, viewLabel }: {
           <li key={w.slug}>
             <Link
               href={`/${lang}/work/${w.slug}`}
-              className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 hover:border-brand-100 hover:shadow-lg motion-safe:transition-all motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600"
+              className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 text-left hover:border-brand-100 hover:shadow-lg motion-safe:transition-all motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600"
             >
               <p className="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-100">{w.category} · {w.client}</p>
               <h3 className="mt-2 text-xl font-bold dark:text-white">{pick(w.title, lang)}</h3>
@@ -46,7 +46,7 @@ export function WorkFilter({ lang, categories, works, allLabel, viewLabel }: {
                 )}
               </ul>
               <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 dark:text-brand-100">
-                {viewLabel ?? "View Case Study"} <span aria-hidden="true">→</span>
+                {viewLabel ?? "View Case Study"} <span aria-hidden="true" className="motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:translate-x-0.5">→</span>
               </span>
             </Link>
           </li>

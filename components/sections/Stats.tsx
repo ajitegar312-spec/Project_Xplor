@@ -13,7 +13,7 @@ export function Stats({ lang, eyebrow, title }: { lang: Locale; eyebrow: string;
           {stats.map((s) => (
             <div key={s.value + pick(s.label, lang)} className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
               <dt className="order-2 mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(s.label, lang)}</dt>
-              <dd className="order-1 text-3xl font-extrabold text-ink dark:text-white">{s.value}</dd>
+              <dd className="order-1 text-3xl font-extrabold tabular-nums text-ink dark:text-white sm:text-4xl">{s.value}</dd>
             </div>
           ))}
         </dl>
