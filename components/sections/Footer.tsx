@@ -1,9 +1,10 @@
 import Link from "next/link";
 import type { Locale } from "@/types";
+import type { Dictionary } from "@/lib/i18n";
 import { Container } from "../ui/Container";
 import { siteConfig } from "@/lib/site-config";
 
-export function Footer({ lang, dict }: { lang: Locale; dict: any }) {
+export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <footer className="mt-20 border-t border-slate-100 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
       <Container className="grid gap-10 py-14 md:grid-cols-4">

@@ -48,6 +48,6 @@
     "faqTitle": "FAQ",
     "mapTitle": "Location (dummy)"
   },
-  "newsletter": { "title": "Get monthly insights", "placeholder": "Your email", "button": "Subscribe", "done": "Subscribed! (mock)" },
+  "newsletter": { "title": "Get monthly insights", "placeholder": "Your email", "button": "Subscribe", "sending": "Subscribing...", "done": "Subscribed! (mock)", "error": "Subscription failed. Try again." },
   "footer": { "tagline": "Building fast, secure, measurable digital products.", "rights": "All rights reserved.", "dummy": "Contacts on this page are dummy for development." }
 }

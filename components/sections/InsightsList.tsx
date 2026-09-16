@@ -3,12 +3,13 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/types";
 import { pick } from "@/types";
+import type { Dictionary } from "@/lib/i18n";
 import { Container } from "@/components/ui/Container";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
 
 export function InsightsList({ lang, dict, categories, posts }: {
   lang: Locale;
-  dict: any;
+  dict: Dictionary;
   categories: string[];
   posts: { slug: string; category: string; date: string; author: string; title: { id: string; en: string }; excerpt: { id: string; en: string } }[];
 }) {

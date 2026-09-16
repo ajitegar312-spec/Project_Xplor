@@ -22,7 +22,8 @@ const copy = {
 // Footer, and Dark/Light Theme already apply. Locale is derived from
 // the unknown URL itself — no hardcoded locale, no routing hacks.
 export default function LocaleNotFound() {
-  const pathname = usePathname();
+  // usePathname() can be null during prerender — default to "id".
+  const pathname = usePathname() ?? "";
   const lang = pathname.split("/")[1] === "en" ? "en" : "id";
   const t = copy[lang];
   return (

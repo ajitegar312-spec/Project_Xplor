@@ -38,7 +38,9 @@ export function MobileMenu({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
+  // usePathname() can be null during prerender — fall back to "" so
+  // no link is marked active instead of throwing.
+  const pathname = usePathname() ?? "";
 
   function isActive(href: string): boolean {
     if (pathname === href) return true;

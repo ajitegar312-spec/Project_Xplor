@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { Locale } from "@/types";
+import type { Dictionary } from "@/lib/i18n";
 import { Container } from "../ui/Container";
 
-export function CTA({ lang, dict }: { lang: Locale; dict: any }) {
+export function CTA({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <section aria-labelledby="cta-title" className="mt-20">
       <Container>

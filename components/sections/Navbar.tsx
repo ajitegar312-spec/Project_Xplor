@@ -1,12 +1,13 @@
 import Link from "next/link";
 import type { Locale } from "@/types";
+import type { Dictionary } from "@/lib/i18n";
 import { Container } from "../ui/Container";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { siteConfig } from "@/lib/site-config";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
 
-export function Navbar({ lang, dict }: { lang: Locale; dict: any }) {
+export function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const links = [
     { href: `/${lang}`, label: dict.nav.home },
     { href: `/${lang}/about`, label: dict.nav.about },

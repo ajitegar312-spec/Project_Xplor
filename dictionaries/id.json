@@ -48,6 +48,6 @@
     "faqTitle": "Pertanyaan umum",
     "mapTitle": "Lokasi (dummy)"
   },
-  "newsletter": { "title": "Dapatkan insight bulanan", "placeholder": "Email Anda", "button": "Berlangganan", "done": "Terdaftar! (mock)" },
+  "newsletter": { "title": "Dapatkan insight bulanan", "placeholder": "Email Anda", "button": "Berlangganan", "sending": "Memproses...", "done": "Terdaftar! (mock)", "error": "Gagal mendaftar. Coba lagi." },
   "footer": { "tagline": "Membangun produk digital yang cepat, aman, dan terukur.", "rights": "Hak cipta dilindungi.", "dummy": "Kontak di halaman ini adalah dummy untuk development." }
 }

@@ -1,28 +1,31 @@
 "use client";
 import { useState } from "react";
 import { apiClient } from "@/lib/api-client";
+import type { Dictionary } from "@/lib/i18n";
+import { MAX_LEN, isValidLead, normalizeLead } from "@/lib/validate";
 
-export function ContactForm({ dict }: { dict: any }) {
+export function ContactForm({ dict }: { dict: Dictionary }) {
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const payload = {
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const lead = normalizeLead({
       name: String(fd.get("name") || ""),
       email: String(fd.get("email") || ""),
       company: String(fd.get("company") || ""),
       budget: String(fd.get("budget") || ""),
       message: String(fd.get("message") || ""),
-    };
-    if (!payload.name || !payload.email.includes("@") || !payload.message) {
+    });
+    if (!isValidLead(lead)) {
       setStatus("error");
       return;
     }
     setStatus("sending");
     try {
-      await apiClient.sendLead(payload);
+      await apiClient.sendLead(lead);
       setStatus("done");
-      (e.target as HTMLFormElement).reset();
+      form.reset();
     } catch {
       setStatus("error");
     }
@@ -33,17 +36,17 @@ export function ContactForm({ dict }: { dict: any }) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-name" className="mb-1 block text-sm font-medium">{dict.contactPage.name}</label>
-          <input id="cf-name" name="name" required autoComplete="name" className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
+          <input id="cf-name" name="name" required autoComplete="name" maxLength={MAX_LEN.name} className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
         </div>
         <div>
           <label htmlFor="cf-email" className="mb-1 block text-sm font-medium">{dict.contactPage.email}</label>
-          <input id="cf-email" name="email" type="email" required autoComplete="email" className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
+          <input id="cf-email" name="email" type="email" required autoComplete="email" maxLength={MAX_LEN.email} className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-company" className="mb-1 block text-sm font-medium">{dict.contactPage.company}</label>
-          <input id="cf-company" name="company" autoComplete="organization" className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
+          <input id="cf-company" name="company" autoComplete="organization" maxLength={MAX_LEN.company} className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
         </div>
         <div>
           <label htmlFor="cf-budget" className="mb-1 block text-sm font-medium">{dict.contactPage.budget}</label>
@@ -58,7 +61,7 @@ export function ContactForm({ dict }: { dict: any }) {
       </div>
       <div>
         <label htmlFor="cf-message" className="mb-1 block text-sm font-medium">{dict.contactPage.message}</label>
-        <textarea id="cf-message" name="message" required rows={5} className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
+        <textarea id="cf-message" name="message" required rows={5} maxLength={MAX_LEN.message} className="w-full rounded-xl border border-slate-200 px-3 py-2.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
       </div>
       <button disabled={status === "sending"} className="rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-700 disabled:opacity-60">
         {status === "sending" ? dict.contactPage.sending : dict.contactPage.submit}

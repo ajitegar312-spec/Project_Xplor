@@ -13,7 +13,9 @@ function isActive(pathname: string, href: string): boolean {
 }
 
 export function NavLinks({ links }: { links: NavLinkItem[] }) {
-  const pathname = usePathname();
+  // usePathname() can be null during prerender — fall back to "" so
+  // no link is marked active instead of throwing.
+  const pathname = usePathname() ?? "";
   return (
     <nav aria-label="Primary" className="hidden items-center gap-6 text-sm font-medium md:flex">
       {links.map((l) => {
