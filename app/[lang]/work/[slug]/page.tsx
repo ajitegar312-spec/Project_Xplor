@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Locale } from "@/types";
 import { pick, locales } from "@/types";
 import { getDictionary } from "@/lib/i18n";
+import { pageAlternates } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { ProjectVisual } from "@/components/sections/ProjectVisual";
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const w = getWork(slug);
   if (!w) return { title: "Case Study" };
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: pick(w.title, lang), description: pick(w.summary, lang) };
+  return { title: pick(w.title, lang), description: pick(w.summary, lang), alternates: pageAlternates(lang, `/${lang}/work/${slug}`) };
 }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {

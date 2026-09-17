@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/types";
 import { getDictionary } from "@/lib/i18n";
+import { pageAlternates } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { InsightsList } from "@/components/sections/InsightsList";
 import { posts, postCategories } from "@/content/insights";
 
-export const metadata: Metadata = { title: "Insights" };
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang: rawLang } = await params;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
+  return { title: "Insights", alternates: pageAlternates(lang, `/${lang}/insights`) };
+}
 
 export default async function InsightsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;

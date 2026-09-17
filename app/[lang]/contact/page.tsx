@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/types";
 import { getDictionary } from "@/lib/i18n";
+import { pageAlternates } from "@/lib/metadata";
 import { siteConfig, waLink } from "@/lib/site-config";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { FAQ } from "@/components/sections/FAQ";
 import { faqs } from "@/content/site-data";
 
-export const metadata: Metadata = { title: "Contact" };
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang: rawLang } = await params;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
+  return { title: "Contact", alternates: pageAlternates(lang, `/${lang}/contact`) };
+}
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;

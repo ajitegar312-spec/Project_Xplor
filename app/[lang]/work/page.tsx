@@ -3,13 +3,18 @@ import Link from "next/link";
 import type { Locale } from "@/types";
 import { pick } from "@/types";
 import { getDictionary } from "@/lib/i18n";
+import { pageAlternates } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { ProjectVisual } from "@/components/sections/ProjectVisual";
 import { WorkFilter } from "@/components/sections/WorkFilter";
 import { works, workCategories } from "@/content/works";
 
-export const metadata: Metadata = { title: "Work" };
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang: rawLang } = await params;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
+  return { title: "Work", alternates: pageAlternates(lang, `/${lang}/work`) };
+}
 
 export default async function WorkPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;

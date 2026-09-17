@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Locale } from "@/types";
 import { pick, locales } from "@/types";
 import { getDictionary } from "@/lib/i18n";
+import { pageAlternates } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { getPost, postSlugs, posts } from "@/content/insights";
 
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const p = getPost(slug);
   if (!p) return { title: "Article" };
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: pick(p.title, lang), description: pick(p.excerpt, lang) };
+  return { title: pick(p.title, lang), description: pick(p.excerpt, lang), alternates: pageAlternates(lang, `/${lang}/insights/${slug}`) };
 }
 
 export default async function PostDetail({ params }: { params: Promise<{ lang: string; slug: string }> }) {

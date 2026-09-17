@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Locale } from "@/types";
 import { pick } from "@/types";
 import { getDictionary } from "@/lib/i18n";
+import { pageAlternates } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { Stats } from "@/components/sections/Stats";
@@ -13,7 +14,14 @@ import { works } from "@/content/works";
 import { posts } from "@/content/insights";
 import { testimonials, whyChooseUs } from "@/content/site-data";
 
-export const metadata: Metadata = { title: "Xplor Digital — Digital Transformation Partner" };
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang: rawLang } = await params;
+  const lang = (rawLang === "en" ? "en" : "id") as Locale;
+  return {
+    title: "Xplor Digital — Digital Transformation Partner",
+    alternates: pageAlternates(lang, `/${lang}`),
+  };
+}
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;

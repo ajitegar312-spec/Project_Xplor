@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Locale } from "@/types";
 import { pick, locales } from "@/types";
 import { getDictionary } from "@/lib/i18n";
+import { pageAlternates } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const s = getService(slug);
   if (!s) return { title: "Service" };
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: pick(s.title, lang), description: pick(s.excerpt, lang) };
+  return { title: pick(s.title, lang), description: pick(s.excerpt, lang), alternates: pageAlternates(lang, `/${lang}/services/${slug}`) };
 }
 
 export default async function ServiceDetail({ params }: { params: Promise<{ lang: string; slug: string }> }) {
