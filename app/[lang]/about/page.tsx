@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/types";
-import { pick } from "@/types";
 import { getDictionary } from "@/lib/i18n";
 import { pageAlternates } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { Stats } from "@/components/sections/Stats";
-import { team } from "@/content/site-data";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params;
@@ -61,23 +59,6 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       </section>
 
       <Stats lang={lang} eyebrow={dict.sections.stats.eyebrow} title={dict.sections.stats.title} />
-
-      <section className="mt-16" aria-labelledby="team">
-        <Container>
-          <h2 id="team" className="text-2xl font-bold dark:text-white">{dict.about.teamTitle}</h2>
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((m) => (
-              <li key={m.name} className="rounded-2xl border border-slate-200 p-6 text-center dark:border-slate-800">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-slate-100 text-xl font-bold dark:bg-slate-800 dark:text-slate-100" aria-hidden="true">
-                  {m.name.split(" ").map((x) => x[0]).slice(0, 2).join("")}
-                </div>
-                <p className="mt-3 font-bold dark:text-white">{m.name}</p>
-                <p className="text-sm text-slate-600 dark:text-slate-300">{pick(m.role, lang)}</p>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
 
       <CTA lang={lang} dict={dict} />
     </>

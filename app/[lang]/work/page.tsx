@@ -39,7 +39,7 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
               className="group mt-4 grid overflow-hidden rounded-3xl border border-slate-200 bg-white hover:shadow-xl motion-safe:transition-all motion-safe:duration-200 dark:border-slate-800 dark:bg-slate-900 md:grid-cols-2"
             >
               <Reveal className="flex flex-col justify-center p-8 sm:p-10">
-                <p className="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-100">{featured.category} · {featured.client} · {featured.year}</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-100">{featured.category} · {featured.client}</p>
                 <h2 id="featured-work" className="mt-3 text-3xl font-extrabold tracking-tight dark:text-white sm:text-4xl">{pick(featured.title, lang)}</h2>
                 <p className="mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{pick(featured.summary, lang)}</p>
                 <ul className="mt-5 flex flex-wrap gap-1.5">

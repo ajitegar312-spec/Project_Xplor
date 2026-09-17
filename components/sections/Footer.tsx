@@ -27,7 +27,6 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           <ul className="space-y-2.5 text-sm text-slate-600 transition-colors dark:text-slate-300 [&_a:hover]:text-ink dark:[&_a:hover]:text-white">
             <li><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></li>
             <li>{siteConfig.waNumber}</li>
-            <li>{lang === "id" ? siteConfig.addressId : siteConfig.addressEn}</li>
           </ul>
         </div>
         <div>

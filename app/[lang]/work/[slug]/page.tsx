@@ -34,7 +34,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ lang
       <section className="bg-gradient-to-b from-brand-50 to-white py-14 dark:from-slate-900 dark:to-slate-950 sm:py-20" aria-labelledby="cs-title">
         <Container className="max-w-3xl">
           <p><Link href={`/${lang}/work`} className="text-sm font-bold text-brand-700 dark:text-brand-100">← {dict.nav.work}</Link></p>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{w!.category} · {w!.client} · {w!.year}</p>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{w!.category} · {w!.client}</p>
           <h1 id="cs-title" className="mt-3 text-3xl font-extrabold tracking-tight dark:text-white sm:text-5xl">{pick(w!.title, lang)}</h1>
           <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">{pick(w!.summary, lang)}</p>
           <div className="mt-8">
