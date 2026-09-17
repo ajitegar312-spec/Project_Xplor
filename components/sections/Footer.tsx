@@ -33,8 +33,8 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         <div>
           <p className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Legal</p>
           <ul className="space-y-2.5 text-sm text-slate-600 transition-colors dark:text-slate-300 [&_a:hover]:text-ink dark:[&_a:hover]:text-white">
-            <li><Link href={`/${lang}/contact`}>Privacy (dummy)</Link></li>
-            <li><Link href={`/${lang}/contact`}>Terms (dummy)</Link></li>
+            <li><Link href={`/${lang}/privacy`}>Privacy</Link></li>
+            <li><Link href={`/${lang}/terms`}>Terms</Link></li>
           </ul>
         </div>
       </Container>

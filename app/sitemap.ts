@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = [];
   for (const lang of locales) {
     urls.push({ url: `${base}/${lang}`, lastModified: new Date() });
-    for (const p of ["about", "services", "work", "insights", "contact"]) {
+    for (const p of ["about", "services", "work", "insights", "contact", "privacy", "terms"]) {
       urls.push({ url: `${base}/${lang}/${p}`, lastModified: new Date() });
     }
     for (const s of serviceSlugs()) urls.push({ url: `${base}/${lang}/services/${s}`, lastModified: new Date() });
