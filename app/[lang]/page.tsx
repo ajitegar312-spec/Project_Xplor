@@ -54,7 +54,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <section className="mt-14" aria-label={dict.sections.trusted.title}>
         <Container>
           <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">{dict.sections.trusted.eyebrow}</p>
-          <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400 dark:text-slate-500">
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-500 dark:text-slate-400">
             {["Finova", "MedikaCare", "Arunika", "Karta", "Svara", "Wastu"].map((b) => <li key={b}>{b}</li>)}
           </ul>
         </Container>
