@@ -7,6 +7,7 @@ import { pageAlternates } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { ProjectVisual } from "@/components/sections/ProjectVisual";
+import { Reveal } from "@/components/ui/Reveal";
 import { WorkFilter } from "@/components/sections/WorkFilter";
 import { works, workCategories } from "@/content/works";
 
@@ -37,7 +38,7 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
               href={`/${lang}/work/${featured.slug}`}
               className="group mt-4 grid overflow-hidden rounded-3xl border border-slate-200 bg-white hover:shadow-xl motion-safe:transition-all motion-safe:duration-200 dark:border-slate-800 dark:bg-slate-900 md:grid-cols-2"
             >
-              <div className="flex flex-col justify-center p-8 sm:p-10">
+              <Reveal className="flex flex-col justify-center p-8 sm:p-10">
                 <p className="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-100">{featured.category} · {featured.client} · {featured.year}</p>
                 <h2 id="featured-work" className="mt-3 text-3xl font-extrabold tracking-tight dark:text-white sm:text-4xl">{pick(featured.title, lang)}</h2>
                 <p className="mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{pick(featured.summary, lang)}</p>
@@ -49,8 +50,10 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
                 <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 dark:text-brand-100">
                   {dict.workPage.viewCaseStudy} <span aria-hidden="true" className="motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:translate-x-0.5">→</span>
                 </span>
-              </div>
-              <ProjectVisual monogram={featured.client.charAt(0)} className="m-4 mt-0 min-h-60 md:m-6 md:ml-0 md:mt-6 md:min-h-[320px]" />
+              </Reveal>
+              <Reveal className="m-4 mt-0 md:m-6 md:ml-0 md:mt-6" delay={120}>
+                <ProjectVisual monogram={featured.client.charAt(0)} className="h-full min-h-60 md:min-h-[320px]" />
+              </Reveal>
             </Link>
           </Container>
         </section>

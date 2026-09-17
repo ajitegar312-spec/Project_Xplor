@@ -9,6 +9,7 @@ import { CTA } from "@/components/sections/CTA";
 import { Stats } from "@/components/sections/Stats";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
+import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/content/services";
 import { works } from "@/content/works";
 import { posts } from "@/content/insights";
@@ -71,14 +72,18 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Services */}
       <section className="mt-20" aria-labelledby="home-services">
         <Container>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.services.eyebrow}</p>
-          <h2 id="home-services" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.services.title}</h2>
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.services.eyebrow}</p>
+            <h2 id="home-services" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.services.title}</h2>
+          </Reveal>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
+            {services.map((s, i) => (
               <li key={s.slug} className="rounded-2xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-2xl dark:bg-slate-800" aria-hidden="true">{s.icon}</span>
-                <h3 className="mt-3 font-bold"><Link href={`/${lang}/services/${s.slug}`} className="transition-colors hover:text-brand-700 dark:hover:text-brand-100">{pick(s.title, lang)}</Link></h3>
-                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(s.excerpt, lang)}</p>
+                <Reveal delay={(i % 3) * 70}>
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-2xl dark:bg-slate-800" aria-hidden="true">{s.icon}</span>
+                  <h3 className="mt-3 font-bold"><Link href={`/${lang}/services/${s.slug}`} className="transition-colors hover:text-brand-700 dark:hover:text-brand-100">{pick(s.title, lang)}</Link></h3>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(s.excerpt, lang)}</p>
+                </Reveal>
               </li>
             ))}
           </ul>
@@ -88,17 +93,20 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Featured Work */}
       <section className="mt-20" aria-labelledby="home-work">
         <Container>
-          <div className="flex items-end justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.work.eyebrow}</p>
-              <h2 id="home-work" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.work.title}</h2>
+          <Reveal>
+            <div className="flex items-end justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.work.eyebrow}</p>
+                <h2 id="home-work" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.work.title}</h2>
+              </div>
+              <Link href={`/${lang}/work`} className="text-sm font-bold text-brand-700 dark:text-brand-100">{dict.sections.work.all} →</Link>
             </div>
-            <Link href={`/${lang}/work`} className="text-sm font-bold text-brand-700 dark:text-brand-100">{dict.sections.work.all} →</Link>
-          </div>
+          </Reveal>
           <ul className="mt-8 grid gap-5 md:grid-cols-3">
-            {featured.map((w) => (
+            {featured.map((w, i) => (
               <li key={w.slug}>
-                <Link href={`/${lang}/work/${w.slug}`} className="group block h-full overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-lg motion-safe:transition-all motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700">
+                <Reveal delay={(i % 3) * 70} className="h-full">
+                  <Link href={`/${lang}/work/${w.slug}`} className="group block h-full overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-lg motion-safe:transition-all motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700">
                   <div className="flex h-36 items-center justify-center bg-gradient-to-br from-brand-100 to-slate-100 text-4xl dark:from-slate-800 dark:to-slate-900" aria-hidden="true">◈</div>
                   <div className="flex flex-col p-5">
                     <p className="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-100">{w.category} · {w.client}</p>
@@ -109,6 +117,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                     </span>
                   </div>
                 </Link>
+                </Reveal>
               </li>
             ))}
           </ul>
@@ -137,14 +146,18 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Testimonials */}
       <section className="mt-20" aria-labelledby="home-testimonials">
         <Container>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.testimonials.eyebrow}</p>
-          <h2 id="home-testimonials" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.testimonials.title}</h2>
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.testimonials.eyebrow}</p>
+            <h2 id="home-testimonials" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.testimonials.title}</h2>
+          </Reveal>
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {testimonials.map((t) => (
+            {testimonials.map((t, i) => (
               <li key={t.author} className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
-                <p className="text-sm text-slate-700 dark:text-slate-200">{pick(t.quote, lang)}</p>
-                <p className="mt-4 text-sm font-bold dark:text-white">{t.author}</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">{t.role}</p>
+                <Reveal delay={(i % 3) * 70}>
+                  <p className="text-sm text-slate-700 dark:text-slate-200">{pick(t.quote, lang)}</p>
+                  <p className="mt-4 text-sm font-bold dark:text-white">{t.author}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{t.role}</p>
+                </Reveal>
               </li>
             ))}
           </ul>
@@ -154,19 +167,23 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Insights */}
       <section className="mt-20" aria-labelledby="home-insights">
         <Container>
-          <div className="flex items-end justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.insights.eyebrow}</p>
-              <h2 id="home-insights" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.insights.title}</h2>
+          <Reveal>
+            <div className="flex items-end justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.insights.eyebrow}</p>
+                <h2 id="home-insights" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.insights.title}</h2>
+              </div>
+              <Link href={`/${lang}/insights`} className="text-sm font-bold text-brand-700 dark:text-brand-100">{dict.sections.insights.all} →</Link>
             </div>
-            <Link href={`/${lang}/insights`} className="text-sm font-bold text-brand-700 dark:text-brand-100">{dict.sections.insights.all} →</Link>
-          </div>
+          </Reveal>
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {latestPosts.map((p) => (
+            {latestPosts.map((p, i) => (
               <li key={p.slug} className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
-                <p className="text-xs font-semibold uppercase text-brand-600 dark:text-brand-100">{p.category}</p>
-                <h3 className="mt-1 font-bold dark:text-white"><Link href={`/${lang}/insights/${p.slug}`}>{pick(p.title, lang)}</Link></h3>
-                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(p.excerpt, lang)}</p>
+                <Reveal delay={(i % 3) * 70}>
+                  <p className="text-xs font-semibold uppercase text-brand-600 dark:text-brand-100">{p.category}</p>
+                  <h3 className="mt-1 font-bold dark:text-white"><Link href={`/${lang}/insights/${p.slug}`}>{pick(p.title, lang)}</Link></h3>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{pick(p.excerpt, lang)}</p>
+                </Reveal>
               </li>
             ))}
           </ul>

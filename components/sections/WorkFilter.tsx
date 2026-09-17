@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/types";
 import { pick } from "@/types";
+import { Reveal } from "../ui/Reveal";
 
 export function WorkFilter({ lang, categories, works, allLabel, viewLabel }: {
   lang: Locale;
@@ -28,9 +29,10 @@ export function WorkFilter({ lang, categories, works, allLabel, viewLabel }: {
         ))}
       </div>
       <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {list.map((w) => (
+        {list.map((w, i) => (
           <li key={w.slug}>
-            <Link
+            <Reveal delay={(i % 3) * 70} className="h-full">
+              <Link
               href={`/${lang}/work/${w.slug}`}
               className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 text-left hover:border-brand-100 hover:shadow-lg motion-safe:transition-all motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600"
             >
@@ -49,6 +51,7 @@ export function WorkFilter({ lang, categories, works, allLabel, viewLabel }: {
                 {viewLabel ?? "View Case Study"} <span aria-hidden="true" className="motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:translate-x-0.5">→</span>
               </span>
             </Link>
+            </Reveal>
           </li>
         ))}
       </ul>
