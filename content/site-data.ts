@@ -1,11 +1,10 @@
-import type { ProcessStep, Stat, WhyItem, Faq, TeamMember, Testimonial } from "@/types";
+import type { ProcessStep, Stat, WhyItem, Faq, TeamMember } from "@/types";
 
-// DUMMY content — structured for easy replacement later.
+// Sample content — replace with verified project/company content when available.
 export const stats: Stat[] = [
-  { value: "50+", label: { id: "Proyek Terkirim", en: "Projects Delivered" } },
-  { value: "20+", label: { id: "Klien di Berbagai Negara", en: "Clients Worldwide" } },
-  { value: "10+", label: { id: "Tahun Pengalaman", en: "Years of Experience" } },
-  { value: "12", label: { id: "Spesialis Digital", en: "Digital Specialists" } },
+  { value: "6", label: { id: "Kapabilitas Utama", en: "Core Capabilities" } },
+  { value: "2", label: { id: "Bahasa", en: "Languages" } },
+  { value: "24/7", label: { id: "Ketersediaan Digital", en: "Digital Availability" } },
 ];
 
 export const whyChooseUs: WhyItem[] = [
@@ -31,11 +30,6 @@ export const team: TeamMember[] = [
   { name: "Nabila Sari", role: { id: "Project & Client Success Manager", en: "Project & Client Success Manager" } },
 ];
 
-export const testimonials: Testimonial[] = [
-  { quote: { id: "\u201CXplor Digital mengubah ide kami menjadi produk yang benar-benar dicintai pelanggan.\u201D", en: "\u201CXplor Digital transformed our idea into a product that our customers actually love.\u201D" }, author: "Daniel Hart", role: "CEO, Finova" },
-  { quote: { id: "\u201CKomunikasinya jelas, prosesnya transparan, dan hasil akhirnya melebihi ekspektasi.\u201D", en: "\u201CThe communication was clear, the process was transparent, and the final product exceeded our expectations.\u201D" }, author: "Sarah Wijaya", role: "Product Director, MedikaCare" },
-  { quote: { id: "\u201CMereka menghadirkan platform scalable dengan UX yang simpel dan intuitif.\u201D", en: "\u201CThey delivered a scalable platform while keeping the user experience simple and intuitive.\u201D" }, author: "Michael Tan", role: "Founder, Arunika" },
-];
 
 export const faqs: Faq[] = [
   { q: { id: "Bagaimana proyek biasanya dimulai?", en: "How does a project typically start?" }, a: { id: "Kami mulai dengan discovery session untuk memahami goals, requirements, users, dan kebutuhan teknis Anda.", en: "We begin with a discovery session to understand your goals, requirements, users, and technical needs." } },

@@ -1,11 +1,12 @@
 import type { Work } from "@/types";
 
-// 3 featured real briefs + 3 dummy extras for grid. Outcomes use safe
-// design-intent wording only — no fabricated business numbers.
+// Sample concept projects for portfolio display — replace with verified
+// project/company content when available. Outcomes use safe design-intent
+// wording only, never fabricated business numbers.
 export const works: Work[] = [
   {
     slug: "finova-digital-banking",
-    client: "Finova",
+    client: "Finova (Concept)",
     year: "2025",
     category: "Fintech",
     title: { id: "Finova — Platform Digital Banking", en: "Finova — Digital Banking Platform" },
@@ -24,12 +25,10 @@ export const works: Work[] = [
       { id: "Dibangun untuk mendukung visibilitas keuangan real-time bagi pengguna.", en: "Built to support real-time financial visibility for users." },
       { id: "Berfokus pada pengalaman yang ringan dan cepat di perangkat mobile.", en: "Focused on a lightweight, fast experience on mobile devices." },
     ],
-    quote: { id: "Xplor Digital mengubah ide kami menjadi produk yang dicintai pelanggan.", en: "Xplor Digital transformed our idea into a product customers love." },
-    quoteAuthor: "Daniel Hart, CEO Finova",
   },
   {
     slug: "medikacare-healthcare-system",
-    client: "MedikaCare",
+    client: "MedikaCare (Concept)",
     year: "2024",
     category: "Healthcare",
     title: { id: "MedikaCare — Sistem Manajemen Kesehatan", en: "MedikaCare — Healthcare Management System" },
@@ -48,12 +47,10 @@ export const works: Work[] = [
       { id: "Dibangun untuk mendukung data pasien yang terpusat dan mudah diakses.", en: "Built to support centralized, easily accessible patient data." },
       { id: "Berfokus pada pengalaman yang jelas bagi pasien dan staf klinik.", en: "Focused on a clear experience for patients and clinic staff." },
     ],
-    quote: { id: "Proses transparan dan hasil melebihi ekspektasi.", en: "Transparent process, results beyond expectations." },
-    quoteAuthor: "Sarah Wijaya, MedikaCare",
   },
   {
     slug: "arunika-ecommerce",
-    client: "Arunika",
+    client: "Arunika (Concept)",
     year: "2025",
     category: "E-Commerce",
     title: { id: "Arunika — Platform E-Commerce", en: "Arunika — E-Commerce Platform" },
@@ -72,15 +69,13 @@ export const works: Work[] = [
       { id: "Dibangun untuk mendukung pencarian produk yang cepat dan relevan.", en: "Built to support fast, relevant product discovery." },
       { id: "Berfokus pada waktu muat yang konsisten di semua perangkat.", en: "Focused on consistently fast load times across devices." },
     ],
-    quote: { id: "Scalable namun UX tetap simpel dan intuitif.", en: "Scalable yet simple, intuitive UX." },
-    quoteAuthor: "Michael Tan, Arunika",
   },
   {
     slug: "karta-logistics-dashboard",
-    client: "Karta (dummy)",
+    client: "Karta (Concept)",
     year: "2024",
     category: "SaaS",
-    title: { id: "Karta — Dashboard Logistik (dummy)", en: "Karta — Logistics Dashboard (dummy)" },
+    title: { id: "Karta — Dashboard Logistik", en: "Karta — Logistics Dashboard" },
     summary: { id: "Visibilitas armada & SLA real-time.", en: "Real-time fleet & SLA visibility." },
     challenge: { id: "Data operasional tersebar di spreadsheet.", en: "Ops data scattered across sheets." },
     solution: { id: "Dashboard terpusat dengan alert SLA dan ekspor laporan.", en: "Central dashboard with SLA alerts and report export." },
@@ -98,10 +93,10 @@ export const works: Work[] = [
   },
   {
     slug: "svara-edtech-platform",
-    client: "Svara (dummy)",
+    client: "Svara (Concept)",
     year: "2023",
     category: "EdTech",
-    title: { id: "Svara — Platform EdTech (dummy)", en: "Svara — EdTech Platform (dummy)" },
+    title: { id: "Svara — Platform EdTech", en: "Svara — EdTech Platform" },
     summary: { id: "Kelas online & analitik belajar.", en: "Online classes & learning analytics." },
     challenge: { id: "Retensi murid rendah.", en: "Low student retention." },
     solution: { id: "Gamifikasi progres dan reminder belajar personal.", en: "Progress gamification and personal nudges." },
@@ -119,10 +114,10 @@ export const works: Work[] = [
   },
   {
     slug: "wastu-proptech-site",
-    client: "Wastu (dummy)",
+    client: "Wastu (Concept)",
     year: "2023",
     category: "Website",
-    title: { id: "Wastu — Website Proptech (dummy)", en: "Wastu — Proptech Site (dummy)" },
+    title: { id: "Wastu — Website Proptech", en: "Wastu — Proptech Site" },
     summary: { id: "Katalog properti SEO-ready.", en: "SEO-ready property catalog." },
     challenge: { id: "Lead organik stagnan.", en: "Stagnant organic leads." },
     solution: { id: "IA baru + halaman programmatic SEO + form terjadwal.", en: "New IA + programmatic SEO + scheduled forms." },

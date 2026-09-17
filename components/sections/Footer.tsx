@@ -41,7 +41,6 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
       <div className="border-t border-slate-200 dark:border-slate-800">
         <Container className="flex flex-col gap-1 py-4 text-xs text-slate-500 dark:text-slate-400 sm:flex-row sm:justify-between">
           <span>© 2026 {siteConfig.brand}. {dict.footer.rights}</span>
-          <span>{dict.footer.dummy}</span>
         </Container>
       </div>
     </footer>

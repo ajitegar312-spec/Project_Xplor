@@ -11,7 +11,6 @@
   },
   "sections": {
     "intro": { "eyebrow": "Perkenalan", "title": "Tim engineering & desain untuk bisnis ambisius" },
-    "trusted": { "eyebrow": "Dipercaya oleh", "title": "Dipercaya tim modern" },
     "services": { "eyebrow": "Layanan", "title": "Layanan end-to-end", "more": "Pelajari" },
     "work": { "eyebrow": "Portfolio Pilihan", "title": "Hasil yang terukur", "all": "Lihat semua" },
     "why": { "eyebrow": "Kenapa Kami", "title": "Kenapa memilih Xplor Digital" },
@@ -28,7 +27,7 @@
     "teamTitle": "Tim inti"
   },
   "servicesPage": { "title": "Layanan kami", "subtitle": "Enam kapabilitas inti untuk meluncurkan dan mengembangkan produk digital." },
-  "workPage": { "title": "Portfolio", "subtitle": "Studi kasus pilihan dari produk yang kami rancang dan bangun.", "filterAll": "Semua", "featured": "Studi Kasus Unggulan", "viewCaseStudy": "Lihat Studi Kasus" },
+  "workPage": { "title": "Portfolio", "subtitle": "Contoh studi kasus konseptual yang menunjukkan pendekatan desain dan engineering kami.", "filterAll": "Semua", "featured": "Studi Kasus Unggulan", "viewCaseStudy": "Lihat Studi Kasus" },
   "caseStudy": { "challenge": "Tantangan", "solution": "Solusi", "features": "Fitur Utama", "technology": "Teknologi", "outcome": "Hasil & Dampak", "related": "Proyek Terkait", "cta": "Diskusikan proyek serupa" },
   "insightsPage": { "title": "Insights", "subtitle": "Praktik terbaik engineering, desain, dan strategi digital." },
   "contactPage": {
@@ -43,11 +42,10 @@
     "message": "Kebutuhan Anda",
     "submit": "Kirim",
     "sending": "Mengirim...",
-    "success": "Terima kasih! Pesan Anda terkirim (mock).",
+    "success": "Terima kasih! Pesan Anda terkirim.",
     "error": "Gagal mengirim. Coba lagi.",
-    "faqTitle": "Pertanyaan umum",
-    "mapTitle": "Lokasi (dummy)"
+    "faqTitle": "Pertanyaan umum"
   },
-  "newsletter": { "title": "Dapatkan insight bulanan", "placeholder": "Email Anda", "button": "Berlangganan", "sending": "Memproses...", "done": "Terdaftar! (mock)", "error": "Gagal mendaftar. Coba lagi." },
-  "footer": { "tagline": "Membangun produk digital yang cepat, aman, dan terukur.", "rights": "Hak cipta dilindungi.", "dummy": "Kontak di halaman ini adalah dummy untuk development." }
+  "newsletter": { "title": "Dapatkan insight bulanan", "placeholder": "Email Anda", "button": "Berlangganan", "sending": "Memproses...", "done": "Terdaftar!", "error": "Gagal mendaftar. Coba lagi." },
+  "footer": { "tagline": "Membangun produk digital yang cepat, aman, dan terukur.", "rights": "Hak cipta dilindungi." }
 }

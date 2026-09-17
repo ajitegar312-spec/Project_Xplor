@@ -1,6 +1,6 @@
 import type { Service } from "@/types";
 
-// DUMMY bodies — replace with real copy later. Structure is backend-ready.
+// Sample content — replace with verified company content when available. Structure is backend-ready.
 export const services: Service[] = [
   {
     slug: "web-development",

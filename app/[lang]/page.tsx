@@ -13,7 +13,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/content/services";
 import { works } from "@/content/works";
 import { posts } from "@/content/insights";
-import { testimonials, whyChooseUs } from "@/content/site-data";
+import { whyChooseUs } from "@/content/site-data";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params;
@@ -56,16 +56,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               ? "Kami menggabungkan strategi, desain, dan engineering untuk meluncurkan produk yang cepat, aman, dan terukur."
               : "We combine strategy, design, and engineering to launch fast, secure, measurable products."}
           </p>
-        </Container>
-      </section>
-
-      {/* Trusted By */}
-      <section className="mt-14" aria-label={dict.sections.trusted.title}>
-        <Container>
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">{dict.sections.trusted.eyebrow}</p>
-          <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-500 dark:text-slate-400">
-            {["Finova", "MedikaCare", "Arunika", "Karta", "Svara", "Wastu"].map((b) => <li key={b}>{b}</li>)}
-          </ul>
         </Container>
       </section>
 
@@ -142,27 +132,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
       <ProcessSteps lang={lang} eyebrow={dict.sections.process.eyebrow} title={dict.sections.process.title} />
       <Stats lang={lang} eyebrow={dict.sections.stats.eyebrow} title={dict.sections.stats.title} />
-
-      {/* Testimonials */}
-      <section className="mt-20" aria-labelledby="home-testimonials">
-        <Container>
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{dict.sections.testimonials.eyebrow}</p>
-            <h2 id="home-testimonials" className="mt-2 text-2xl font-bold sm:text-3xl">{dict.sections.testimonials.title}</h2>
-          </Reveal>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <li key={t.author} className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
-                <Reveal delay={(i % 3) * 70}>
-                  <p className="text-sm text-slate-700 dark:text-slate-200">{pick(t.quote, lang)}</p>
-                  <p className="mt-4 text-sm font-bold dark:text-white">{t.author}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">{t.role}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
 
       {/* Insights */}
       <section className="mt-20" aria-labelledby="home-insights">

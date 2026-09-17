@@ -47,10 +47,13 @@ export default async function PostDetail({ params }: { params: Promise<{ lang: s
           </Container>
         </section>
         <Container className="mt-8 max-w-3xl">
-          <p className="leading-relaxed text-slate-700 dark:text-slate-200">{pick(p!.body, lang)}</p>
-          <p className="mt-4 leading-relaxed text-slate-700 dark:text-slate-200">
-            {lang === "id" ? "Paragraf dummy kedua untuk menguji tipografi dan ritme baca. Ganti dengan konten CMS nanti." : "Second dummy paragraph to test typography and reading rhythm. Replace with CMS content later."}
-          </p>
+          {pick(p!.body, lang)
+            .split("\n\n")
+            .map((para, i) => (
+              <p key={i} className="mt-4 leading-relaxed text-slate-700 first:mt-0 dark:text-slate-200">
+                {para}
+              </p>
+            ))}
           <h2 className="mt-8 text-xl font-bold dark:text-white">Related</h2>
           <ul className="mt-3 grid gap-3 sm:grid-cols-2">
             {related.map((r) => (

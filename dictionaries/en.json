@@ -11,7 +11,6 @@
   },
   "sections": {
     "intro": { "eyebrow": "Introduction", "title": "Engineering & design team for ambitious businesses" },
-    "trusted": { "eyebrow": "Trusted by", "title": "Trusted by modern teams" },
     "services": { "eyebrow": "Services", "title": "End-to-end services", "more": "Learn more" },
     "work": { "eyebrow": "Featured Work", "title": "Measurable outcomes", "all": "View all" },
     "why": { "eyebrow": "Why Us", "title": "Why choose Xplor Digital" },
@@ -28,7 +27,7 @@
     "teamTitle": "Core team"
   },
   "servicesPage": { "title": "Our services", "subtitle": "Six core capabilities to launch and scale digital products." },
-  "workPage": { "title": "Work", "subtitle": "Selected case studies of products we designed and built.", "filterAll": "All", "featured": "Featured Case Study", "viewCaseStudy": "View Case Study" },
+  "workPage": { "title": "Work", "subtitle": "Sample conceptual case studies showcasing our design and engineering approach.", "filterAll": "All", "featured": "Featured Case Study", "viewCaseStudy": "View Case Study" },
   "caseStudy": { "challenge": "Challenge", "solution": "Solution", "features": "Key Features", "technology": "Technology", "outcome": "Outcome & Impact", "related": "Related Work", "cta": "Discuss a similar project" },
   "insightsPage": { "title": "Insights", "subtitle": "Best practices in engineering, design, and digital strategy." },
   "contactPage": {
@@ -43,11 +42,10 @@
     "message": "Your needs",
     "submit": "Send",
     "sending": "Sending...",
-    "success": "Thank you! Your message was sent (mock).",
+    "success": "Thank you! Your message was sent.",
     "error": "Failed to send. Try again.",
-    "faqTitle": "FAQ",
-    "mapTitle": "Location (dummy)"
+    "faqTitle": "FAQ"
   },
-  "newsletter": { "title": "Get monthly insights", "placeholder": "Your email", "button": "Subscribe", "sending": "Subscribing...", "done": "Subscribed! (mock)", "error": "Subscription failed. Try again." },
-  "footer": { "tagline": "Building fast, secure, measurable digital products.", "rights": "All rights reserved.", "dummy": "Contacts on this page are dummy for development." }
+  "newsletter": { "title": "Get monthly insights", "placeholder": "Your email", "button": "Subscribe", "sending": "Subscribing...", "done": "Subscribed!", "error": "Subscription failed. Try again." },
+  "footer": { "tagline": "Building fast, secure, measurable digital products.", "rights": "All rights reserved." }
 }

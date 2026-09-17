@@ -34,8 +34,8 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           <h2 id="story" className="text-2xl font-bold dark:text-white">{dict.about.storyTitle}</h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300">
             {lang === "id"
-              ? "Xplor Digital bermula dari tim kecil engineer dan desainer (dummy). Kini kami melayani 20+ klien dengan 50+ proyek terkirim."
-              : "Xplor Digital started as a small team of engineers and designers (dummy). Today we serve 20+ clients across 50+ shipped projects."}
+              ? "Xplor Digital adalah studio teknologi yang menggabungkan strategi, desain, dan engineering untuk membantu membangun produk digital yang cepat, aman, dan terukur."
+              : "Xplor Digital is a technology studio combining strategy, design, and engineering to build fast, secure, and scalable digital products."}
           </p>
         </Container>
       </section>

@@ -34,9 +34,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
             <ul className="mt-3 space-y-2 text-sm">
               <li><span className="font-medium dark:text-slate-200">Email: </span><a className="text-brand-700 underline dark:text-brand-100" href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></li>
               <li><span className="font-medium dark:text-slate-200">WhatsApp: </span><a className="text-brand-700 underline dark:text-brand-100" href={waLink()}>{siteConfig.waNumber}</a></li>
-              <li className="text-slate-600 dark:text-slate-300"><span className="font-medium dark:text-slate-200">Address (dummy): </span>{lang === "id" ? siteConfig.addressId : siteConfig.addressEn}</li>
             </ul>
-            <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">{dict.footer.dummy}</p>
           </div>
           <div className="lg:col-span-2">
             <ContactForm dict={dict} />
@@ -45,18 +43,6 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       </section>
 
       <FAQ lang={lang} title={dict.contactPage.faqTitle} faqs={faqs} />
-
-      <section className="mt-16" aria-labelledby="map">
-        <Container className="max-w-4xl">
-          <h2 id="map" className="text-2xl font-bold dark:text-white">{dict.contactPage.mapTitle}</h2>
-          {/* Dummy static map — dev only, no real embed */}
-          <div className="mt-4 flex h-64 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 text-center dark:border-slate-800 dark:bg-slate-900">
-            <p className="text-3xl" aria-hidden="true">🗺️</p>
-            <p className="text-sm font-medium dark:text-slate-200">Jakarta, Indonesia — dummy location for development</p>
-            <a className="text-sm font-bold text-brand-700 underline dark:text-brand-100" href="https://maps.google.com/?q=Jakarta" target="_blank" rel="noreferrer">Open in Google Maps</a>
-          </div>
-        </Container>
-      </section>
     </>
   );
 }
