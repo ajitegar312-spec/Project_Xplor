@@ -66,6 +66,12 @@ async function sendViaResend(opts: { to: string; subject: string; text: string; 
 export async function sendLeadEmail(lead: LeadInput): Promise<{ delivered: boolean; mode: "resend" | "mock" }> {
   const to = process.env.LEAD_TO_EMAIL;
   if (!process.env.RESEND_API_KEY || !to) {
+    // Never fake a successful delivery in production: the route turns this
+    // into an honest 502 instead of a false "message sent" confirmation.
+    if (process.env.NODE_ENV === "production") {
+      console.error("[lead] NOT DELIVERED — lead delivery is not configured (missing RESEND_API_KEY/LEAD_TO_EMAIL)");
+      throw new Error("Lead delivery is not configured");
+    }
     console.log("[lead] received (mock mode — RESEND_API_KEY/LEAD_TO_EMAIL unset)");
     return { delivered: false, mode: "mock" };
   }
@@ -81,6 +87,11 @@ export async function sendLeadEmail(lead: LeadInput): Promise<{ delivered: boole
 export async function sendSubscribeNotice(email: string): Promise<{ delivered: boolean; mode: "resend" | "mock" }> {
   const to = process.env.LEAD_TO_EMAIL;
   if (!process.env.RESEND_API_KEY || !to) {
+    // Same honesty rule as leads: no fake success in production.
+    if (process.env.NODE_ENV === "production") {
+      console.error("[lead] NOT DELIVERED — newsletter delivery is not configured (missing RESEND_API_KEY/LEAD_TO_EMAIL)");
+      throw new Error("Newsletter delivery is not configured");
+    }
     console.log("[lead] newsletter signup (mock mode — RESEND_API_KEY/LEAD_TO_EMAIL unset)");
     return { delivered: false, mode: "mock" };
   }

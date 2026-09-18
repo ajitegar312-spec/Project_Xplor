@@ -1,6 +1,7 @@
-// Central site config. DUMMY contact values come ONLY from env.
-// Do NOT hardcode email / WhatsApp anywhere else in source.
-// Replace .env values before production.
+// Central site config. Public contact values come ONLY from env.
+// Fallbacks below are obvious placeholders (never real business data) so
+// development works with zero setup. Do NOT hardcode real contacts anywhere
+// else in source. Replace env values before production.
 //
 // Production safety: every value here is validated with a safe fallback so a
 // missing or malformed env var can never crash `next build` prerendering
@@ -40,18 +41,15 @@ function normalizeWaNumber(raw: string): string {
 }
 
 const waNumberRaw =
-  process.env.NEXT_PUBLIC_WA_NUMBER ?? "+62 812-3456-7890";
+  process.env.NEXT_PUBLIC_WA_NUMBER ?? "+62 800-0000-0000";
 
 export const siteConfig = {
   brand: "Xplor Digital",
-  // DUMMY — development only
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@xplor.digital",
-  // DUMMY — development only, normalized to international format in waLink()
+  // Placeholder — development only, replaced via env in production.
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@example.com",
+  // Placeholder — development only, replaced via env in production.
   waNumber: waNumberRaw,
   siteUrl: resolveSiteUrl(),
-  // DUMMY address — do not use as a real person's address
-  addressId: "Xplor Digital, Jl. Sudirman No. 123, Jakarta, Indonesia",
-  addressEn: "Xplor Digital, 123 Sudirman St, Jakarta, Indonesia (dummy, dev only)",
 };
 
 export function waLink(message = "Hello Xplor Digital") {

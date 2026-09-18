@@ -1,4 +1,4 @@
-import type { ProcessStep, Stat, WhyItem, Faq, TeamMember } from "@/types";
+import type { ProcessStep, Stat, WhyItem, Faq } from "@/types";
 
 // Sample content — replace with verified project/company content when available.
 export const stats: Stat[] = [
@@ -22,14 +22,6 @@ export const processSteps: ProcessStep[] = [
 ];
 
 export const techStack: string[] = ["Next.js", "TypeScript", "Tailwind CSS", "React", "Node.js", "Python", "Laravel", "PostgreSQL", "MySQL", "Docker", "AWS", "Cloudflare"];
-
-export const team: TeamMember[] = [
-  { name: "Adrian Pratama", role: { id: "Chief Executive Officer", en: "Chief Executive Officer" } },
-  { name: "Maya Putri", role: { id: "Product & UX Lead", en: "Product & UX Lead" } },
-  { name: "Reza Mahendra", role: { id: "Lead Software Engineer", en: "Lead Software Engineer" } },
-  { name: "Nabila Sari", role: { id: "Project & Client Success Manager", en: "Project & Client Success Manager" } },
-];
-
 
 export const faqs: Faq[] = [
   { q: { id: "Bagaimana proyek biasanya dimulai?", en: "How does a project typically start?" }, a: { id: "Kami mulai dengan discovery session untuk memahami goals, requirements, users, dan kebutuhan teknis Anda.", en: "We begin with a discovery session to understand your goals, requirements, users, and technical needs." } },
