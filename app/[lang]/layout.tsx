@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/types";
 import { getDictionary } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
 import "../globals.css";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
@@ -23,24 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     metadataBase: new URL(siteConfig.siteUrl),
     title: { default: title, template: "%s | Xplor Digital" },
     description,
-    alternates: {
-      canonical: `/${lang}`,
-      languages: { id: "/id", en: "/en", "x-default": "/id" },
-    },
-    openGraph: {
-      type: "website",
-      locale: lang === "id" ? "id_ID" : "en_US",
-      alternateLocale: lang === "id" ? ["en_US"] : ["id_ID"],
-      url: `${siteConfig.siteUrl}/${lang}`,
-      siteName: "Xplor Digital",
-      title,
-      description,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-    },
+    alternates: pageAlternates(lang, `/${lang}`),
+    ...pageSocial(lang, { title, description, pathname: `/${lang}` }),
   };
 }
 

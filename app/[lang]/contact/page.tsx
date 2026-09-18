@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/types";
+import { pick } from "@/types";
 import { getDictionary } from "@/lib/i18n";
-import { pageAlternates } from "@/lib/metadata";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
 import { siteConfig, waLink } from "@/lib/site-config";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -11,15 +12,33 @@ import { faqs } from "@/content/site-data";
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: "Contact", alternates: pageAlternates(lang, `/${lang}/contact`) };
+  const dict = await getDictionary(lang);
+  const title = "Contact";
+  const description = dict.contactPage.subtitle;
+  return {
+    title,
+    description,
+    alternates: pageAlternates(lang, `/${lang}/contact`),
+    ...pageSocial(lang, { title, description, pathname: `/${lang}/contact` }),
+  };
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: pick(f.q, lang),
+      acceptedAnswer: { "@type": "Answer", text: pick(f.a, lang) },
+    })),
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <section className="bg-gradient-to-b from-brand-50 to-white py-14 dark:from-slate-900 dark:to-slate-950" aria-labelledby="contact-hero">
         <Container className="max-w-3xl">
           <h1 id="contact-hero" className="text-3xl font-extrabold dark:text-white sm:text-4xl">{dict.contactPage.title}</h1>

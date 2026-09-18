@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/types";
 import { getDictionary } from "@/lib/i18n";
-import { pageAlternates } from "@/lib/metadata";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { Stats } from "@/components/sections/Stats";
@@ -9,7 +9,17 @@ import { Stats } from "@/components/sections/Stats";
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: "About", alternates: pageAlternates(lang, `/${lang}/about`) };
+  const title = "About";
+  const description =
+    lang === "id"
+      ? "Tentang Xplor Digital: studio teknologi untuk produk digital yang cepat, aman, dan terukur."
+      : "About Xplor Digital: a technology studio for fast, secure, measurable digital products.";
+  return {
+    title,
+    description,
+    alternates: pageAlternates(lang, `/${lang}/about`),
+    ...pageSocial(lang, { title, description, pathname: `/${lang}/about` }),
+  };
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {

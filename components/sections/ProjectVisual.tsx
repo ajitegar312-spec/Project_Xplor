@@ -1,6 +1,7 @@
 // Pure-CSS project visual — no external images.
 // Decorative browser-frame mockup with a client monogram. Always aria-hidden.
-export function ProjectVisual({ monogram, className = "" }: { monogram: string; className?: string }) {
+// Optional `badge` (e.g. "Concept Project") marks concept work explicitly.
+export function ProjectVisual({ monogram, badge, className = "" }: { monogram: string; badge?: string; className?: string }) {
   return (
     <div
       aria-hidden="true"
@@ -19,6 +20,11 @@ export function ProjectVisual({ monogram, className = "" }: { monogram: string; 
       <div className="relative flex h-full items-center justify-center pt-10">
         <span className="text-7xl font-extrabold tracking-tight text-white/90 sm:text-8xl">{monogram}</span>
       </div>
+      {badge && (
+        <span className="absolute bottom-3 left-3 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+          {badge}
+        </span>
+      )}
     </div>
   );
 }

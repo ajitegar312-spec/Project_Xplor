@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import type { Locale } from "@/types";
 import { pick, locales } from "@/types";
 import { getDictionary } from "@/lib/i18n";
-import { pageAlternates } from "@/lib/metadata";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
@@ -19,7 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const s = getService(slug);
   if (!s) return { title: "Service" };
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: pick(s.title, lang), description: pick(s.excerpt, lang), alternates: pageAlternates(lang, `/${lang}/services/${slug}`) };
+  const title = pick(s.title, lang);
+  const description = pick(s.excerpt, lang);
+  const pathname = `/${lang}/services/${slug}`;
+  return { title, description, alternates: pageAlternates(lang, pathname), ...pageSocial(lang, { title, description, pathname }) };
 }
 
 export default async function ServiceDetail({ params }: { params: Promise<{ lang: string; slug: string }> }) {
@@ -28,8 +32,18 @@ export default async function ServiceDetail({ params }: { params: Promise<{ lang
   if (!s) notFound();
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: dict.nav.home, item: `${siteConfig.siteUrl}/${lang}` },
+      { "@type": "ListItem", position: 2, name: dict.nav.services, item: `${siteConfig.siteUrl}/${lang}/services` },
+      { "@type": "ListItem", position: 3, name: pick(s!.title, lang) },
+    ],
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <section className="bg-gradient-to-b from-brand-50 to-white py-14 dark:from-slate-900 dark:to-slate-950" aria-labelledby="svc-title">
         <Container className="max-w-3xl">
           <p><Link href={`/${lang}/services`} className="text-sm font-bold text-brand-700 dark:text-brand-100">← {dict.nav.services}</Link></p>

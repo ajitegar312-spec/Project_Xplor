@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Locale } from "@/types";
 import { pick } from "@/types";
 import { getDictionary } from "@/lib/i18n";
-import { pageAlternates } from "@/lib/metadata";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { Stats } from "@/components/sections/Stats";
@@ -18,9 +18,14 @@ import { whyChooseUs } from "@/content/site-data";
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
+  const dict = await getDictionary(lang);
+  const title = "Xplor Digital — Digital Transformation Partner";
+  const description = dict.hero.subtitle;
   return {
-    title: "Xplor Digital — Digital Transformation Partner",
+    title,
+    description,
     alternates: pageAlternates(lang, `/${lang}`),
+    ...pageSocial(lang, { title, description, pathname: `/${lang}` }),
   };
 }
 

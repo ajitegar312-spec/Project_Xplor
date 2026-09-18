@@ -12,7 +12,7 @@
   "sections": {
     "intro": { "eyebrow": "Introduction", "title": "Engineering & design team for ambitious businesses" },
     "services": { "eyebrow": "Services", "title": "End-to-end services", "more": "Learn more" },
-    "work": { "eyebrow": "Featured Work", "title": "Measurable outcomes", "all": "View all" },
+    "work": { "eyebrow": "Featured Work", "title": "Featured Case Studies", "all": "View all" },
     "why": { "eyebrow": "Why Us", "title": "Why choose Xplor Digital" },
     "process": { "eyebrow": "Process", "title": "A transparent process" },
     "stats": { "eyebrow": "Track Record", "title": "Numbers speak" },
@@ -27,7 +27,7 @@
   },
   "servicesPage": { "title": "Our services", "subtitle": "Six core capabilities to launch and scale digital products." },
   "workPage": { "title": "Work", "subtitle": "Sample conceptual case studies showcasing our design and engineering approach.", "filterAll": "All", "filter": "Filter", "featured": "Featured Case Study", "viewCaseStudy": "View Case Study" },
-  "caseStudy": { "challenge": "Challenge", "solution": "Solution", "features": "Key Features", "technology": "Technology", "outcome": "Outcome & Impact", "related": "Related Work", "cta": "Discuss a similar project", "details": "Case Details" },
+  "caseStudy": { "challenge": "Challenge", "solution": "Solution", "features": "Key Features", "technology": "Technology", "outcome": "Outcome & Impact", "related": "Related Work", "cta": "Discuss a similar project", "details": "Case Details", "concept": "Concept Project", "approach": "Approach" },
   "insightsPage": { "title": "Insights", "subtitle": "Best practices in engineering, design, and digital strategy.", "categories": "Categories" },
   "contactPage": {
     "title": "Contact us",

@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import type { Locale } from "@/types";
 import { pick, locales } from "@/types";
 import { getDictionary } from "@/lib/i18n";
-import { pageAlternates } from "@/lib/metadata";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/ui/Container";
 import { getPost, postSlugs, posts } from "@/content/insights";
 
@@ -17,7 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const p = getPost(slug);
   if (!p) return { title: "Article" };
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: pick(p.title, lang), description: pick(p.excerpt, lang), alternates: pageAlternates(lang, `/${lang}/insights/${slug}`) };
+  const title = pick(p.title, lang);
+  const description = pick(p.excerpt, lang);
+  const pathname = `/${lang}/insights/${slug}`;
+  return { title, description, alternates: pageAlternates(lang, pathname), ...pageSocial(lang, { title, description, pathname }) };
 }
 
 export default async function PostDetail({ params }: { params: Promise<{ lang: string; slug: string }> }) {
@@ -27,6 +31,15 @@ export default async function PostDetail({ params }: { params: Promise<{ lang: s
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
   const related = posts.filter((x) => x.slug !== p!.slug).slice(0, 2);
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: dict.nav.home, item: `${siteConfig.siteUrl}/${lang}` },
+      { "@type": "ListItem", position: 2, name: dict.nav.insights, item: `${siteConfig.siteUrl}/${lang}/insights` },
+      { "@type": "ListItem", position: 3, name: pick(p!.title, lang) },
+    ],
+  };
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -37,6 +50,7 @@ export default async function PostDetail({ params }: { params: Promise<{ lang: s
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <article aria-labelledby="post-title">
         <section className="bg-gradient-to-b from-brand-50 to-white py-14 dark:from-slate-900 dark:to-slate-950">
           <Container className="max-w-3xl">

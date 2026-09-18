@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import type { Locale } from "@/types";
 import { pick, locales } from "@/types";
 import { getDictionary } from "@/lib/i18n";
-import { pageAlternates } from "@/lib/metadata";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
+import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { ProjectVisual } from "@/components/sections/ProjectVisual";
 import { getWork, workSlugs, works } from "@/content/works";
 
@@ -19,7 +21,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const w = getWork(slug);
   if (!w) return { title: "Case Study" };
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: pick(w.title, lang), description: pick(w.summary, lang), alternates: pageAlternates(lang, `/${lang}/work/${slug}`) };
+  const title = pick(w.title, lang);
+  const description = pick(w.summary, lang);
+  const pathname = `/${lang}/work/${slug}`;
+  return { title, description, alternates: pageAlternates(lang, pathname), ...pageSocial(lang, { title, description, pathname }) };
 }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
@@ -29,12 +34,27 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ lang
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
   const dict = await getDictionary(lang);
   const related = works.filter((x) => x.slug !== w!.slug).slice(0, 2);
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: dict.nav.home, item: `${siteConfig.siteUrl}/${lang}` },
+      { "@type": "ListItem", position: 2, name: dict.nav.work, item: `${siteConfig.siteUrl}/${lang}/work` },
+      { "@type": "ListItem", position: 3, name: pick(w!.title, lang) },
+    ],
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <section className="bg-gradient-to-b from-brand-50 to-white py-14 dark:from-slate-900 dark:to-slate-950 sm:py-20" aria-labelledby="cs-title">
         <Container className="max-w-3xl">
           <p><Link href={`/${lang}/work`} className="text-sm font-bold text-brand-700 dark:text-brand-100">← {dict.nav.work}</Link></p>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{w!.category} · {w!.client}</p>
+          <p className="mt-4">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700 dark:border-slate-700 dark:bg-slate-800 dark:text-brand-100">
+              <span aria-hidden="true">◈</span> {dict.caseStudy.concept}
+            </span>
+          </p>
+          <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-100">{w!.category} · {w!.client}</p>
           <h1 id="cs-title" className="mt-3 text-3xl font-extrabold tracking-tight dark:text-white sm:text-5xl">{pick(w!.title, lang)}</h1>
           <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">{pick(w!.summary, lang)}</p>
           <div className="mt-8">
@@ -42,7 +62,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ lang
               {dict.caseStudy.cta} →
             </Link>
           </div>
-          <ProjectVisual monogram={w!.client.charAt(0)} className="mt-10 h-52 sm:h-72" />
+          <ProjectVisual monogram={w!.client.charAt(0)} badge={dict.caseStudy.concept} className="mt-10 h-52 sm:h-72" />
         </Container>
       </section>
 
@@ -59,8 +79,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ lang
         </Container>
       </section>
 
-      <section className="mt-14" aria-labelledby="cs-features">
-        <Container className="max-w-4xl">
+      <ProcessSteps lang={lang} eyebrow={dict.caseStudy.approach} title={dict.sections.process.title} />
+
+      <section className="mt-14" aria-labelledby="cs-features">        <Container className="max-w-4xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-100">{w!.client}</p>
           <h2 id="cs-features" className="mt-2 text-2xl font-bold dark:text-white sm:text-3xl">{dict.caseStudy.features}</h2>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">

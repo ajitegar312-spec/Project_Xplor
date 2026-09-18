@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Locale } from "@/types";
 import { pick } from "@/types";
 import { getDictionary } from "@/lib/i18n";
-import { pageAlternates } from "@/lib/metadata";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
 import { Reveal } from "@/components/ui/Reveal";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
@@ -14,7 +14,15 @@ import { techStack } from "@/content/site-data";
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: "Services", alternates: pageAlternates(lang, `/${lang}/services`) };
+  const dict = await getDictionary(lang);
+  const title = "Services";
+  const description = dict.servicesPage.subtitle;
+  return {
+    title,
+    description,
+    alternates: pageAlternates(lang, `/${lang}/services`),
+    ...pageSocial(lang, { title, description, pathname: `/${lang}/services` }),
+  };
 }
 
 export default async function ServicesPage({ params }: { params: Promise<{ lang: string }> }) {

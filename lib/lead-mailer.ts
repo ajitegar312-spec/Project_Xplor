@@ -158,6 +158,15 @@ export async function sendSubscribeNotice(email: string): Promise<{ delivered: b
     to,
     subject: "New newsletter subscriber",
     text: `New newsletter signup: ${email}`,
+    html:
+      `<div style="font-family:Arial,Helvetica,sans-serif;background-color:#f1f5f9;padding:24px;">` +
+      `<div style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:12px;overflow:hidden;">` +
+      `<div style="background-color:#1e46d6;padding:20px 24px;">` +
+      `<div style="color:#ffffff;font-size:18px;font-weight:bold;">New Newsletter Subscriber</div>` +
+      `<div style="color:#dbe6fe;font-size:13px;margin-top:4px;">Xplor Digital website</div>` +
+      `</div>` +
+      `<div style="padding:24px;color:#0b1020;font-size:14px;">New newsletter signup: ${escapeHtml(email)}</div>` +
+      `</div></div>`,
   });
   return { delivered: true, mode: "resend" };
 }

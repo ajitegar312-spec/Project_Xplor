@@ -12,7 +12,7 @@
   "sections": {
     "intro": { "eyebrow": "Perkenalan", "title": "Tim engineering & desain untuk bisnis ambisius" },
     "services": { "eyebrow": "Layanan", "title": "Layanan end-to-end", "more": "Pelajari" },
-    "work": { "eyebrow": "Portfolio Pilihan", "title": "Hasil yang terukur", "all": "Lihat semua" },
+    "work": { "eyebrow": "Portfolio Pilihan", "title": "Studi Kasus Pilihan", "all": "Lihat semua" },
     "why": { "eyebrow": "Kenapa Kami", "title": "Kenapa memilih Xplor Digital" },
     "process": { "eyebrow": "Proses", "title": "Proses yang transparan" },
     "stats": { "eyebrow": "Pencapaian", "title": "Angka bicara" },
@@ -27,7 +27,7 @@
   },
   "servicesPage": { "title": "Layanan kami", "subtitle": "Enam kapabilitas inti untuk meluncurkan dan mengembangkan produk digital." },
   "workPage": { "title": "Portfolio", "subtitle": "Contoh studi kasus konseptual yang menunjukkan pendekatan desain dan engineering kami.", "filterAll": "Semua", "filter": "Filter", "featured": "Studi Kasus Unggulan", "viewCaseStudy": "Lihat Studi Kasus" },
-  "caseStudy": { "challenge": "Tantangan", "solution": "Solusi", "features": "Fitur Utama", "technology": "Teknologi", "outcome": "Hasil & Dampak", "related": "Proyek Terkait", "cta": "Diskusikan proyek serupa", "details": "Detail Studi Kasus" },
+  "caseStudy": { "challenge": "Tantangan", "solution": "Solusi", "features": "Fitur Utama", "technology": "Teknologi", "outcome": "Hasil & Dampak", "related": "Proyek Terkait", "cta": "Diskusikan proyek serupa", "details": "Detail Studi Kasus", "concept": "Proyek Konsep", "approach": "Pendekatan" },
   "insightsPage": { "title": "Insights", "subtitle": "Praktik terbaik engineering, desain, dan strategi digital.", "categories": "Kategori" },
   "contactPage": {
     "title": "Hubungi kami",

@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  robots: { index: false, follow: false },
+};
 
 // Fallback for URLs without a locale prefix (e.g. /unknown).
 // Offers both locales explicitly — no guessing, no redirects.

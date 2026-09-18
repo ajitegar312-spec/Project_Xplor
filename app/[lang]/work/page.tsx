@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Locale } from "@/types";
 import { pick } from "@/types";
 import { getDictionary } from "@/lib/i18n";
-import { pageAlternates } from "@/lib/metadata";
+import { pageAlternates, pageSocial } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/sections/CTA";
 import { ProjectVisual } from "@/components/sections/ProjectVisual";
@@ -14,7 +14,15 @@ import { works, workCategories } from "@/content/works";
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params;
   const lang = (rawLang === "en" ? "en" : "id") as Locale;
-  return { title: "Work", alternates: pageAlternates(lang, `/${lang}/work`) };
+  const dict = await getDictionary(lang);
+  const title = "Work";
+  const description = dict.workPage.subtitle;
+  return {
+    title,
+    description,
+    alternates: pageAlternates(lang, `/${lang}/work`),
+    ...pageSocial(lang, { title, description, pathname: `/${lang}/work` }),
+  };
 }
 
 export default async function WorkPage({ params }: { params: Promise<{ lang: string }> }) {
@@ -52,7 +60,7 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
                 </span>
               </Reveal>
               <Reveal className="m-4 mt-0 md:m-6 md:ml-0 md:mt-6" delay={120}>
-                <ProjectVisual monogram={featured.client.charAt(0)} className="h-full min-h-60 md:min-h-[320px]" />
+                <ProjectVisual monogram={featured.client.charAt(0)} badge={dict.caseStudy.concept} className="h-full min-h-60 md:min-h-[320px]" />
               </Reveal>
             </Link>
           </Container>
