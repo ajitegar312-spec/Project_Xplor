@@ -1,6 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dbe6fe;
+  --color-brand-500: #2b5cff;
+  --color-brand-600: #1e46d6;
+  --color-brand-700: #1838ad;
+  --color-brand-900: #101c4e;
+  --color-ink: #0b1020;
+  --max-width-shell: 80rem;
+}
 
 :root {
   --brand: #2b5cff;
@@ -36,10 +47,12 @@ body {
   padding: 0.75rem 1rem;
   border: 2px solid var(--brand);
 }
+
 .skip-link:focus {
   left: 0.5rem;
   top: 0.5rem;
 }
+
 .dark .skip-link {
   background: #0f172a;
   color: #f1f5f9;
@@ -56,6 +69,7 @@ body {
     transform: none;
   }
 }
+
 .menu-panel {
   animation: menu-in 0.16s ease-out;
 }
@@ -65,19 +79,23 @@ body {
   transform: translateY(14px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
+
   .menu-panel {
     animation: none;
   }
+
   html {
     scroll-behavior: auto;
   }
