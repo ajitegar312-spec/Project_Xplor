@@ -46,7 +46,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ lang
         </Container>
       </section>
 
-      <section className="mt-14" aria-label="Case detail">
+      <section className="mt-14" aria-label={dict.caseStudy.details}>
         <Container className="grid max-w-4xl gap-4 md:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 p-6 dark:border-slate-800 sm:p-8">
             <h2 className="text-xl font-bold dark:text-white">{dict.caseStudy.challenge}</h2>

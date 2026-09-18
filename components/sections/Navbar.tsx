@@ -19,7 +19,7 @@ export function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
       <a href="#main" className="skip-link">
-        Skip to content
+        {dict.nav.skip}
       </a>
       <Container className="flex h-16 items-center justify-between gap-2 sm:gap-4">
         <Link href={`/${lang}`} className="shrink-0 text-base font-extrabold tracking-tight text-ink dark:text-white sm:text-lg" aria-label={siteConfig.brand}>

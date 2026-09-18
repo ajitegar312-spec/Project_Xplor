@@ -31,7 +31,7 @@ export function InsightsList({ lang, dict, categories, posts }: {
       )}
       <section className="mt-10" aria-label="Articles">
         <Container>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Categories">
+          <div className="flex flex-wrap gap-2" role="group" aria-label={dict.insightsPage.categories}>
             {categories.map((c) => (
               <button key={c} onClick={() => setCat(c)} aria-pressed={cat === c} className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${cat === c ? "bg-ink text-white dark:bg-slate-100 dark:text-slate-950" : "border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-300"}`}>{c}</button>
             ))}

@@ -5,18 +5,19 @@ import type { Locale } from "@/types";
 import { pick } from "@/types";
 import { Reveal } from "../ui/Reveal";
 
-export function WorkFilter({ lang, categories, works, allLabel, viewLabel }: {
+export function WorkFilter({ lang, categories, works, allLabel, viewLabel, filterLabel }: {
   lang: Locale;
   categories: string[];
   works: { slug: string; category: string; title: { id: string; en: string }; summary: { id: string; en: string }; stack: string[]; client: string }[];
   allLabel: string;
   viewLabel?: string;
+  filterLabel: string;
 }) {
   const [cat, setCat] = useState("All");
   const list = cat === "All" ? works : works.filter((w) => w.category === cat);
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="group" aria-label="Filter">
+      <div className="flex flex-wrap gap-2" role="group" aria-label={filterLabel}>
         {categories.map((c) => (
           <button
             key={c}

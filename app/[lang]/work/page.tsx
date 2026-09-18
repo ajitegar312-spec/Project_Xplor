@@ -58,9 +58,9 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
           </Container>
         </section>
       )}
-      <section className="mt-12" aria-label="Projects">
+      <section className="mt-12" aria-label={dict.workPage.title}>
         <Container>
-          <WorkFilter lang={lang} categories={workCategories()} works={works} allLabel={dict.workPage.filterAll} viewLabel={dict.workPage.viewCaseStudy} />
+          <WorkFilter lang={lang} categories={workCategories()} works={works} allLabel={dict.workPage.filterAll} viewLabel={dict.workPage.viewCaseStudy} filterLabel={dict.workPage.filter} />
         </Container>
       </section>
       <CTA lang={lang} dict={dict} />

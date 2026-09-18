@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Home", "about": "About", "services": "Services", "work": "Work", "insights": "Insights", "contact": "Contact", "cta": "Free Consultation" },
+  "nav": { "home": "Home", "about": "About", "services": "Services", "work": "Work", "insights": "Insights", "contact": "Contact", "cta": "Free Consultation", "skip": "Skip to content" },
   "theme": { "toggle": "Toggle light/dark theme" },
   "menu": { "open": "Open navigation menu", "close": "Close navigation menu" },
   "hero": {
@@ -26,9 +26,9 @@
     "teamTitle": "Core team"
   },
   "servicesPage": { "title": "Our services", "subtitle": "Six core capabilities to launch and scale digital products." },
-  "workPage": { "title": "Work", "subtitle": "Sample conceptual case studies showcasing our design and engineering approach.", "filterAll": "All", "featured": "Featured Case Study", "viewCaseStudy": "View Case Study" },
-  "caseStudy": { "challenge": "Challenge", "solution": "Solution", "features": "Key Features", "technology": "Technology", "outcome": "Outcome & Impact", "related": "Related Work", "cta": "Discuss a similar project" },
-  "insightsPage": { "title": "Insights", "subtitle": "Best practices in engineering, design, and digital strategy." },
+  "workPage": { "title": "Work", "subtitle": "Sample conceptual case studies showcasing our design and engineering approach.", "filterAll": "All", "filter": "Filter", "featured": "Featured Case Study", "viewCaseStudy": "View Case Study" },
+  "caseStudy": { "challenge": "Challenge", "solution": "Solution", "features": "Key Features", "technology": "Technology", "outcome": "Outcome & Impact", "related": "Related Work", "cta": "Discuss a similar project", "details": "Case Details" },
+  "insightsPage": { "title": "Insights", "subtitle": "Best practices in engineering, design, and digital strategy.", "categories": "Categories" },
   "contactPage": {
     "title": "Contact us",
     "subtitle": "Tell us your needs — we reply within 1 business day.",

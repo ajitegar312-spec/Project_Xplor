@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Home", "about": "Tentang", "services": "Layanan", "work": "Portfolio", "insights": "Insight", "contact": "Kontak", "cta": "Konsultasi Gratis" },
+  "nav": { "home": "Home", "about": "Tentang", "services": "Layanan", "work": "Portfolio", "insights": "Insight", "contact": "Kontak", "cta": "Konsultasi Gratis", "skip": "Lewati ke konten" },
   "theme": { "toggle": "Ganti tema terang/gelap" },
   "menu": { "open": "Buka menu navigasi", "close": "Tutup menu navigasi" },
   "hero": {
@@ -26,9 +26,9 @@
     "teamTitle": "Tim inti"
   },
   "servicesPage": { "title": "Layanan kami", "subtitle": "Enam kapabilitas inti untuk meluncurkan dan mengembangkan produk digital." },
-  "workPage": { "title": "Portfolio", "subtitle": "Contoh studi kasus konseptual yang menunjukkan pendekatan desain dan engineering kami.", "filterAll": "Semua", "featured": "Studi Kasus Unggulan", "viewCaseStudy": "Lihat Studi Kasus" },
-  "caseStudy": { "challenge": "Tantangan", "solution": "Solusi", "features": "Fitur Utama", "technology": "Teknologi", "outcome": "Hasil & Dampak", "related": "Proyek Terkait", "cta": "Diskusikan proyek serupa" },
-  "insightsPage": { "title": "Insights", "subtitle": "Praktik terbaik engineering, desain, dan strategi digital." },
+  "workPage": { "title": "Portfolio", "subtitle": "Contoh studi kasus konseptual yang menunjukkan pendekatan desain dan engineering kami.", "filterAll": "Semua", "filter": "Filter", "featured": "Studi Kasus Unggulan", "viewCaseStudy": "Lihat Studi Kasus" },
+  "caseStudy": { "challenge": "Tantangan", "solution": "Solusi", "features": "Fitur Utama", "technology": "Teknologi", "outcome": "Hasil & Dampak", "related": "Proyek Terkait", "cta": "Diskusikan proyek serupa", "details": "Detail Studi Kasus" },
+  "insightsPage": { "title": "Insights", "subtitle": "Praktik terbaik engineering, desain, dan strategi digital.", "categories": "Kategori" },
   "contactPage": {
     "title": "Hubungi kami",
     "subtitle": "Ceritakan kebutuhan Anda — kami balas < 1x24 jam.",

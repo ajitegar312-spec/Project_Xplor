@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 // Offers both locales explicitly — no guessing, no redirects.
 export default function GlobalNotFound() {
   return (
-    <section aria-labelledby="notfound-title" className="py-20 sm:py-28">
+    <section aria-labelledby="notfound-title" id="main" className="py-20 sm:py-28">
       <Container className="max-w-2xl text-center">
         <p aria-hidden="true" className="text-7xl font-extrabold tracking-tight text-brand-600 dark:text-brand-100 sm:text-8xl">
           404
